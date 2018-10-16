@@ -1,8 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
-const Buy = () =>{
+const Buy = (props) =>{
   return(
-    <h1>Buy Page</h1>
+    <div>
+      <h1>Buy Page {props.name}</h1>
+      <Link to='/'>
+        <button className="btn waves-effect waves-light" type="submit" name="action">Back
+    </button>
+      </Link>
+    </div>
   );
 };
 
