@@ -3,22 +3,19 @@ import Form from './page1';
 
 class Holder extends Component{
   state = {
-    newUser:{
-      name:''
-    }
+    name:'',
+    state:'fl'
   }
   handleChange = (e) =>{
-    this.setState(
-      {newUser:{
-        [e.target.id]:e.target.value
-      }}
-    );
+    console.log(e.target);
+    this.setState({
+      [e.target.name]:e.target.value
+    });
   }
   render(){
-    const {name} = this.state.newUser;
     return(
       <div>
-        <Form name={name} onChange={this.handleChange}/>
+        <Form newUser={this.state} onChange={this.handleChange} />
       </div>
 
     );
