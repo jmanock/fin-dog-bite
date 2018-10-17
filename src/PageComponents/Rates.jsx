@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import Input from '../FormComponents/Input';
 
 const Rates = (props) =>{
-  console.log(props.location.state.newUser.name);
-  const {name, state}=props.location.state;
+  console.log(props.location.state.newUser);
+  const {name, state}=props.location.state.newUser;
   return(
     <div>
       <h1>Rates Page</h1>
@@ -13,7 +13,7 @@ const Rates = (props) =>{
       <Link to='/'>
         Back
       </Link>
-      <Link to={{pathname:'/Buy', state:{name:name, state:state}}}>
+      <Link to={{pathname:'/Buy', state:{newUser:props.location.state.newUser}}}>
         Next
       </Link>
     </div>

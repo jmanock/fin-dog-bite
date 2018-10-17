@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 import Form from './PageComponents/Form';
+import States from './Containers/States';
+import Breeds from './Containers/Breeds';
 
 class Holder extends Component{
   state = {
     newUser:{
       name:'',
       state:''
-    }
+    },
+    stateOptions:States,
+    breedOptions:Breeds,
+    ynOptions:['Yes', 'No']
   }
 
   handleChange = (e) =>{
@@ -17,7 +22,7 @@ class Holder extends Component{
 
   render(){
     return(
-        <Form handleChange={this.handleChange} newUser={this.state.newUser}/>
+        <Form handleChange={this.handleChange} newUser={this.state}/>
     );
   }
 };
