@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Input from '../FormComponents/Input';
 
 const Rates = (props) =>{
+  console.log(props.location.state.newUser.name);
   const {name, state}=props.location.state;
   return(
     <div>
