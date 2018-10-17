@@ -11,7 +11,8 @@ class Holder extends Component{
     },
     stateOptions:States,
     breedOptions:Breeds,
-    ynOptions:['Yes', 'No']
+    ynOptions:['Yes', 'No'],
+    placeholder:'Please choose...'
   }
 
   handleChange = (e) =>{
