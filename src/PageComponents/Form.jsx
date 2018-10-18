@@ -76,9 +76,9 @@ const Form = (props) => {
         </div>
       </form>
       <Link to={{pathname:'/Rates', state:{newUser:props.newUser}}}>
-        <Button type={'primary'} title={'Continue'}></Button>
+        <Button type={'btn btn-primary'} title={'Continue'} className={'fa fa-paw'}></Button>
       </Link>
     </div>
-  )
-}
+  );
+};
 export default Form;

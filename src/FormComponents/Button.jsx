@@ -2,8 +2,8 @@ import React from 'react';
 
 const Button = (props) =>{
   return(
-    <button style={props.style} className={props.type==='primary'?'btn btn-primary': 'btn btn-secondary'} onClick={props.action}>
-      <i className='fa fa-paw'></i> {props.title}
+    <button style={props.style} className={props.type} onClick={props.action}>
+      <i className={props.className}></i> {props.title}
     </button>
   );
 };
