@@ -4,8 +4,7 @@ import Button from '../FormComponents/Button';
 import Select from '../FormComponents/Select';
 
 const Rates = (props) =>{
-  const {name, breed} = props.location.state.newUser;
-
+  const {breed, name} = props.location.state.newUser.newUser;
   return(
     <div className='container'>
       <h1>Summary of Dogs</h1>
@@ -24,7 +23,9 @@ const Rates = (props) =>{
         <tbody>
           <tr>
             <td>
-              <Button type={'btn btn-primary'} className={'fa fa-pencil'} title={'Edit'}></Button>
+              <Link to='/'>
+                <Button type={'btn btn-primary'} className={'fa fa-pencil'} title={'Edit'}></Button>
+              </Link>
             </td>
             <td>{name}</td>
             <td>{breed}</td>

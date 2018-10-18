@@ -3,7 +3,7 @@ import React from 'react';
 const Select = (props) =>{
   return(
     <div className='form-group'>
-      <label className='form-label'>{props.title}</label>
+      <label className='form-label'>{props.title} <i className={props.question}></i></label>
       <select id={props.name} name={props.name} value={props.value} onChange={props.handleChange} className='form-control form-control-sm'>
         <option>{props.placeholder}</option>
         {props.options.map(option =>{

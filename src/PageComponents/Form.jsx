@@ -29,7 +29,7 @@ const Form = (props) => {
 
             <Input type={'text'} title={'What color is this dog:'} name={'color'} value={props.newUser.color} placeholder={"Enter the dog's color"} handleChange={props.handleChange} />
 
-            <Select title={'Choose a state:'} name={'state'} options={props.newUser.stateOptions} placeholder={'Select a state'} value={props.newUser.state} handleChange={props.handleChange} />
+            <Select title={'Choose a state:'} name={'state'} options={props.newUser.stateOptions} placeholder={'Select a state'} value={props.newUser.state} handleChange={props.handleChange} question={'fa fa-question'} /> 
 
             <Select title={'Choose a breed:'} name={'breed'} options={props.newUser.breedOptions} placeholder={'Select a breed'} value={props.newUser.breed} handleChange={props.handleChange} />
 

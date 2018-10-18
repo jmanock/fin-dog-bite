@@ -6,8 +6,9 @@ import Breeds from './Containers/Breeds';
 class Holder extends Component{
   state = {
     newUser:{
-      name:'',
-      state:''
+      name:'Sam',
+      state:'',
+      breed:''
     },
     stateOptions:States,
     breedOptions:Breeds,
