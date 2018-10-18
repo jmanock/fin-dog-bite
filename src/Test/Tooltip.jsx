@@ -5,10 +5,10 @@ const Tooltip = (props) => {
     display:props.hover ? 'block' : 'none'
   }
   return(
-    <div>
-      <div onMouseOver={props.handleMouseIn} onMouseOut={props.handleMouseOut}>{props.message}</div>
+    <React.Fragment>
+      <div onMouseOver={props.handleMouseIn} onMouseOut={props.handleMouseOut} className='fa fa-question'></div>
       <div style={tooltipStyle}>{props.tooltip}</div>
-    </div>
+    </React.Fragment>
   )
 }
 export default Tooltip;
