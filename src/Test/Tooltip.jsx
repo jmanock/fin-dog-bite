@@ -6,7 +6,7 @@ const Tooltip = (props) => {
   }
   return(
     <React.Fragment>
-      <div onMouseOver={props.handleMouseIn} onMouseOut={props.handleMouseOut} className='fa fa-question'></div>
+      <div onMouseOver={props.handleMouseIn} onMouseOut={props.handleMouseOut} className='fa fa-question'> </div> 
       <div style={tooltipStyle}>{props.tooltip}</div>
     </React.Fragment>
   )
