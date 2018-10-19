@@ -3,7 +3,6 @@ import Select from '../FormComponents/Select';
 
 const FormTest = (props) =>{
   //const something = props.user.newUser;
-
   return(
     <div className='container'>
       <Select title={'State:'} name={'state'} options={['one', 'two', 'three']} placeholder={props.user.placeholder} handleChange={props.handleChange} value={props.user.newUser.state} handleMouseIn={props.handleMouseIn} handleMouseOut={props.handleMouseOut} hover={props.user.hover}/>
