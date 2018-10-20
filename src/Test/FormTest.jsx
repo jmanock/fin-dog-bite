@@ -1,14 +1,34 @@
-import React from 'react';
+import React,{Component} from 'react';
 import Select from '../FormComponents/Select';
+import Input from '../FormComponents/Input';
 
-const FormTest = (props) =>{
-  //const something = props.user.newUser;
-  return(
-    <div className='container'>
-      <Select title={'State:'} name={'state'} options={['one', 'two', 'three']} placeholder={props.user.placeholder} handleChange={props.handleChange} value={props.user.newUser.state} handleMouseIn={props.handleMouseIn} handleMouseOut={props.handleMouseOut} hover={props.user.hover}/>
-    </div>
-  );
-};
+class FormTest extends Component{
+  state={
+    age:'',
+    color:'',
+    state:''
+  }
+  handleChange = (e) =>{
+    this.setState({
+      [e.target.name]:e.target.value
+    });
+  }
+  render(){
+    console.log(this.state);
+    return(
+      <div className='container'>
+        <Select title={'States'} name={'state'} options={['Nebraska', 'Florida', 'Iowa']}  placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.state} handleMouseOut={this.props.handleMouseOut} tooltip={'something, something darkside'} handleMouseIn={this.props.handleMouseIn} hover={this.props.user.hover}/>
+
+        <Input type={'number'} title={'Ages'} name={'age'} value={this.state.age} placeholder={this.props.user.placeholder} handleChange={this.handleChange}/>
+
+        <Select title={'Color'} name={'color'} options={['Brown', 'Black', 'Tan']} placeholder={this.props.user.placeholder} tooltip={'nothing here'} handleChange={this.handleChange} value={this.state.color} />
+      </div>
+    )
+  }
+}
+
+
+
 
 export default FormTest;
 

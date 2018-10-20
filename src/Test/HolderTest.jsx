@@ -4,9 +4,7 @@ import FormTest from './FormTest';
 class HolderTest extends Component{
   state = {
     hover:false,
-    newUser:[
-      {state:'', name:''}
-    ],
+    currentDog:{age:'', state:'', color:''},
     placeholder:'Please Choose.....'
   }
   handleMouseIn = () =>{
@@ -21,20 +19,10 @@ class HolderTest extends Component{
     });
   }
 
-  handleChange = (e) =>{
-    let value = e.target.value;
-    let name = e.target.name;
-    const obj = {[name]:value };
-    this.setState({
-      newUser:[...this.state.newUser,obj]
-    });
-    // this.setState(prevState => ({newUser:[...prevState.newUser, [name]:value]}));
-  }
 
   render(){
-    console.log(this.state);
     return(
-      <FormTest handleMouseOut={this.handleMouseOut} handleMouseIn={this.handleMouseIn} handleChange={this.handleChange} user={this.state}/>
+      <FormTest handleMouseOut={this.handleMouseOut} handleMouseIn={this.handleMouseIn}  user={this.state}/>
     );
   }
 };
