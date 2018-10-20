@@ -1,6 +1,8 @@
 import React,{Component} from 'react';
 import Select from '../FormComponents/Select';
 import Input from '../FormComponents/Input';
+import {Link} from 'react-router-dom';
+import Button from '../FormComponents/Button';
 
 class FormTest extends Component{
   state={
@@ -17,11 +19,15 @@ class FormTest extends Component{
     console.log(this.state);
     return(
       <div className='container'>
-        <Select title={'States'} name={'state'} options={['Nebraska', 'Florida', 'Iowa']}  placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.state} handleMouseOut={this.props.handleMouseOut} tooltip={'something, something darkside'} handleMouseIn={this.props.handleMouseIn} hover={this.props.user.hover}/>
+         <Select title={'States'} name={'state'} options={['Nebraska', 'Florida', 'Iowa']}  placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.state} handleMouseOut={this.props.handleMouseOut} tooltip={'something, something darkside'} handleMouseIn={this.props.handleMouseIn} hover={this.props.user.hover}/>
 
-        <Input type={'number'} title={'Ages'} name={'age'} value={this.state.age} placeholder={this.props.user.placeholder} handleChange={this.handleChange}/>
+          <Input type={'number'} title={'Ages:'} name={'age'} value={this.state.age} placeholder={this.props.user.placeholder} handleChange={this.handleChange}/>
 
-        <Select title={'Color'} name={'color'} options={['Brown', 'Black', 'Tan']} placeholder={this.props.user.placeholder} tooltip={'nothing here'} handleChange={this.handleChange} value={this.state.color} />
+          <Select title={'Color:'} name={'color'} options={['Brown', 'Black', 'Tan']} placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.color} />
+
+          <Link to={{pathname:'/RatesTes', state:{dog:this.state}}}>
+            <Button></Button>
+          </Link>
       </div>
     )
   }
