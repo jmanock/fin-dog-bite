@@ -16,7 +16,7 @@ class FormTest extends Component{
     });
   }
   render(){
-    console.log(this.state);
+
     return(
       <div className='container'>
          <Select title={'States'} name={'state'} options={['Nebraska', 'Florida', 'Iowa']}  placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.state} handleMouseOut={this.props.handleMouseOut} tooltip={'something, something darkside'} handleMouseIn={this.props.handleMouseIn} hover={this.props.user.hover}/>
@@ -25,8 +25,8 @@ class FormTest extends Component{
 
           <Select title={'Color:'} name={'color'} options={['Brown', 'Black', 'Tan']} placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.color} />
 
-          <Link to={{pathname:'/RatesTes', state:{dog:this.state}}}>
-            <Button></Button>
+          <Link to={{pathname:'/RatesTest', state:{dog:this.state}}}>
+            <Button type={'btn btn-primary'} title={'Continue'} className={'fa fa-paw'}></Button>
           </Link>
       </div>
     )
