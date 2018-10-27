@@ -1,46 +1,33 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import Select from '../FormComponents/Select';
 import Input from '../FormComponents/Input';
-import {Link} from 'react-router-dom';
-import Button from '../FormComponents/Button';
 
 class FormTest extends Component{
-  state={
+  state = {
     age:'',
-    color:'',
-    state:''
+    state:'',
+    color:''
   }
   handleChange = (e) =>{
     this.setState({
       [e.target.name]:e.target.value
     });
   }
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    this.props.addDog(this.state);
+  }
   render(){
-
     return(
       <div className='container'>
-         <Select title={'States'} name={'state'} options={['Nebraska', 'Florida', 'Iowa']}  placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.state} handleMouseOut={this.props.handleMouseOut} tooltip={'something, something darkside'} handleMouseIn={this.props.handleMouseIn} hover={this.props.user.hover}/>
-
-          <Input type={'number'} title={'Ages:'} name={'age'} value={this.state.age} placeholder={this.props.user.placeholder} handleChange={this.handleChange}/>
-
-          <Select title={'Color:'} name={'color'} options={['Brown', 'Black', 'Tan']} placeholder={this.props.user.placeholder} handleChange={this.handleChange} value={this.state.color} />
-
-          <Link to={{pathname:'/RatesTest', state:{dog:this.state}}}>
-            <Button type={'btn btn-primary'} title={'Continue'} className={'fa fa-paw'}></Button>
-          </Link>
+        <form onSubmit={this.handleSubmit}>
+          <Select title={'State'} name={'state'} options={['Iowa', 'Nebraska', 'Florida']} value={this.state.state} handleChange={this.handleChange} placeholder={'select a kname'}/>
+          <Input type={'number'} title={'Age'} name={'age'} value={this.state.age} placeholder={'knew Num'} handleChange={this.handleChange} />
+          <Select title={'Color'} name={'color'} options={['Tan', 'Brown', 'Black']} value={this.state.color} handleChange={this.handleChange} placeholder={'knew Color'} />
+        </form>
       </div>
     )
   }
 }
 
-
-
-
 export default FormTest;
-
-/*
-  ~ Add to the object array
-  ~ Work on the different pages to store info to add to the object array
-  ~ Work on Edit button/page
-  ~ Work on the add button/page
-*/

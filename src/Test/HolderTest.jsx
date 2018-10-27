@@ -1,30 +1,37 @@
 import React, {Component} from 'react';
 import FormTest from './FormTest';
+import RatesTest from './RatesTest';
 
 class HolderTest extends Component{
   state = {
-    hover:false,
-    currentDog:{age:'', state:'', color:''},
-    placeholder:'Please Choose.....'
+    dogs:[
+      {id:1, state:'Nebraska', age:'10', color:'Brown'},
+      {id:2, state:'Iowa', age:'5', color:'Tan'}
+    ]
   }
-  handleMouseIn = () =>{
-    this.setState({
-      hover:true
+  deleteDog = (id) =>{
+    const dogs = this.state.dogs.filter(dog => {
+      return dog.id !== id;
     });
-  }
-
-  handleMouseOut = () =>{
     this.setState({
-      hover:false
-    });
+      dogs:dogs
+    })
   }
-
-
+  addDog = (dog) =>{
+    dog.id = Math.random();
+    let dogs = [...this.state.dogs,dog];
+    this.setState({
+      dogs
+    })
+  }
   render(){
     return(
-      <FormTest handleMouseOut={this.handleMouseOut} handleMouseIn={this.handleMouseIn}  user={this.state}/>
-    );
+      <div className='container'>
+        <FormTest addDog={this.addDog} />
+        <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} />
+      </div>
+    )
   }
-};
+}
 
 export default HolderTest;
