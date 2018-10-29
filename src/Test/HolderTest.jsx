@@ -18,6 +18,9 @@ class HolderTest extends Component{
       dogs:dogs
     })
   }
+  editDog = (id) =>{
+    console.log(id,'Hi');
+  }
   addDog = (dog) =>{
     dog.id = Math.random();
     let dogs = [...this.state.dogs,dog];
@@ -29,7 +32,7 @@ class HolderTest extends Component{
     return(
       <div className='container'>
         <FormTest addDog={this.addDog} />
-        <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} />
+        <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog}/>
         <BuyTest dogs={this.state.dogs} />
       </div>
     )
