@@ -11,6 +11,7 @@ class RatesTest extends Component{
     })
   }
   handleSubmit = (e) =>{
+    // This needs to only add outside of the object
     e.preventDefault();
     this.props.addDog(this.state);
   }
@@ -19,7 +20,9 @@ class RatesTest extends Component{
       this.props.dogs.map(dog => {
         return(
           <div className='collection' key={dog.id}>
-            <span onClick={() =>{this.props.deleteDog(dog.id)}}>{dog.state} | {dog.age} | {dog.color}</span>
+
+            
+            <span>{dog.state} <button onClick={()=>{this.props.deleteDog(dog.id)}}>Delete Dog</button></span>
           </div>
         )
       })

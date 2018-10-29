@@ -6,8 +6,8 @@ import BuyTest from './BuyTest';
 class HolderTest extends Component{
   state = {
     dogs:[
-      {id:1, state:'Nebraska', age:'10', color:'Brown', additionalIns:'3'},
-      {id:2, state:'Iowa', age:'5', color:'Tan', additionalIns:'1'}
+      {id:1, state:'Nebraska', age:'10', color:'Brown'},
+      {id:2, state:'Iowa', age:'5', color:'Tan'}
     ]
   }
   deleteDog = (id) =>{
