@@ -29,6 +29,7 @@ class HolderTest extends Component{
       dogs
     })
   }
+  
   addIns = (x) =>{
     this.setState({
       additionalIns:x
