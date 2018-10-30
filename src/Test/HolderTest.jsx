@@ -8,7 +8,8 @@ class HolderTest extends Component{
     dogs:[
       {id:1, state:'Nebraska', age:'10', color:'Brown'},
       {id:2, state:'Iowa', age:'5', color:'Tan'}
-    ]
+    ],
+    additionalIns:''
   }
   deleteDog = (id) =>{
     const dogs = this.state.dogs.filter(dog => {
@@ -28,11 +29,16 @@ class HolderTest extends Component{
       dogs
     })
   }
+  addIns = (x) =>{
+    this.setState({
+      additionalIns:x
+    });
+  }
   render(){
     return(
       <div className='container'>
         <FormTest addDog={this.addDog} />
-        <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog}/>
+        <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog} addIns={this.addIns}/>
         <BuyTest dogs={this.state.dogs} />
       </div>
     )
