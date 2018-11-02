@@ -10,7 +10,9 @@ class HolderTest extends Component{
       {id:2, state:'Iowa', age:'5', color:'Tan'}
     ],
     additionalIns:'',
-    show:true
+    showForms:true,
+    showRates:false,
+    showBuy:false
   }
   deleteDog = (id) =>{
     const dogs = this.state.dogs.filter(dog => {
@@ -31,12 +33,12 @@ class HolderTest extends Component{
     })
   }
   toggle = (e) =>{
-    if(e.target.value === 'comtinue'){
-      console.log('HiToggle');
+    if(e.target.value === 'comtinue'){ 
+      this.setState({
+        showForm:false,
+        showBuy:true
+      })
     }
-    this.setState({
-      show:!this.state.show
-    })
   }
   addIns = (x) =>{
     this.setState({
