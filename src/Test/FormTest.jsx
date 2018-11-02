@@ -25,7 +25,7 @@ class FormTest extends Component{
           <Select title={'State'} name={'state'} options={['Iowa', 'Nebraska', 'Florida']} value={this.state.state} handleChange={this.handleChange} placeholder={'select a kname'}/>
           <Input type={'number'} title={'Age'} name={'age'} value={this.state.age} placeholder={'knew Num'} handleChange={this.handleChange} />
           <Select title={'Color'} name={'color'} options={['Tan', 'Brown', 'Black']} value={this.state.color} handleChange={this.handleChange} placeholder={'knew Color'} />
-          <Button type={'btn btn-primary'} className={'fa fa-paw'} title={'Continue'}></Button>
+          <Button type={'btn btn-primary'} className={'fa fa-paw'} title={'Continue'} action={this.props.toggle} value={'comtinue'}></Button>
         </form>
       </div>
     )
