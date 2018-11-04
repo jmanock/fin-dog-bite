@@ -10,7 +10,7 @@ class HolderTest extends Component{
       {id:2, state:'Iowa', age:'5', color:'Tan'}
     ],
     additionalIns:'',
-    showForms:true,
+    showForm:true,
     showRates:false,
     showBuy:false
   }
@@ -33,7 +33,7 @@ class HolderTest extends Component{
     })
   }
   toggle = (e) =>{
-    if(e.target.value === 'comtinue'){ 
+    if(e.target.value === 'comtinue'){
       this.setState({
         showForm:false,
         showBuy:true

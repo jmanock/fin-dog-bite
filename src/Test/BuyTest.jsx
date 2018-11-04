@@ -2,25 +2,44 @@ import React, {Component} from 'react';
 
 class BuyTest extends Component{
   state = {
-    shown:true
+    shownForm:true,
+    showBuy:false,
+    showRates:false
   }
-  toggle = () =>{
-    this.setState({
-      shown:!this.state.shown
-    });
+  toggle = (x) =>{
+    console.log(x.target.value)
+    if(x.target.value === 'form'){
+      this.setState({
+        shownForm:false,
+        showBuy:true,
+        showRates:false
+      });
+    }
+    if(x.target.value === 'buy'){
+      this.setState({
+        shownForm:false,
+        showRates:true,
+        showBuy:false
+      })
+    }
   }
   render(){
-    var shown = {
-      display:this.state.shown ? 'block' : 'none'
-    };
-    var hidden = {
-      display:this.state.shown ? 'none' : 'block'
-    };
+    const Form = {
+      display:this.state.shownForm ? 'block' : 'none'
+    }
+    const Rates = {
+      display:this.state.showRates ? 'block' : 'none'
+    }
+    const Buy = {
+      display:this.state.showBuy ? 'block' : 'none'
+    }
     return(
       <div>
-        <h2 style={shown}>this.state.shown = true</h2>
-        <h2 style={hidden}>this.state.shown = false</h2>
-        <button onClick={this.toggle}>Toggle</button>
+        <h1 style={Form}>Form</h1>
+        <h1 style={Rates}>Rates</h1>
+        <h1 style={Buy}>Buy</h1>
+        <button onClick={this.toggle} value='buy'>Buy</button>
+        <button onClick={this.toggle} value='form'>Form</button>
       </div>
     )
   }
