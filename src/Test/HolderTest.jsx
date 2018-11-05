@@ -46,11 +46,28 @@ class HolderTest extends Component{
     });
   }
   render(){
+    const Form = {
+      display:this.state.showForm ? 'block' : 'none'
+    }
+    const Rates = {
+      display:this.state.showRates ? 'block' : 'none'
+    }
+    const Buy = {
+      display:this.state.showBuy ? 'block' : 'none'
+    }
+
     return(
       <div className='container'>
-        <FormTest addDog={this.addDog} toggle={this.toggle} />
-        <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog} addIns={this.addIns}/>
-        <BuyTest dogs={this.state.dogs} />
+        <div style={Form}>
+          <FormTest addDog={this.addDog} toggle={this.toggle} />
+        </div>
+        <div style={Rates}>
+          <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog} addIns={this.addIns}/>
+        </div>
+        <div style={Buy}>
+          <BuyTest style={Buy} dogs={this.state.dogs} />
+        </div>
+
       </div>
     )
   }

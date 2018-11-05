@@ -11,15 +11,15 @@ class BuyTest extends Component{
     if(x.target.value === 'form'){
       this.setState({
         shownForm:false,
-        showBuy:true,
-        showRates:false
+        showRates:false,
+        showBuy:true
       });
     }
     if(x.target.value === 'buy'){
       this.setState({
-        shownForm:false,
         showRates:true,
-        showBuy:false
+        showBuy:false,
+        shownForm:false
       })
     }
   }
