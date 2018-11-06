@@ -53,6 +53,7 @@ class RatesTest extends Component{
         <h3>Addition Insureds ($50 each)</h3>
         <small>Examples include: landlord, employer, and governmental entity</small>
         <Select title={'Select the total number of additional insureds:'} name={'additionalInsureds'} options={['0','1','2','3','4','5']} value={this.props.additionalInsureds} placeholder={'please choose'} handleChange={this.handleChange} />
+        <Button type={'btn btn-success'} title={'Continue'} className={'fa fa-paw'} action={this.props.toggle} value={'rates'}></Button>
       </div>
 
     )

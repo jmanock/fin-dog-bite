@@ -33,11 +33,20 @@ class HolderTest extends Component{
     })
   }
   toggle = (e) =>{
-    if(e.target.value === 'comtinue'){
+    console.log(e.target.value);
+    if(e.target.value === 'form'){
       this.setState({
         showForm:false,
+        showRates:true,
+        showBuy:false
+      });
+    }
+    if(e.target.value === 'rates'){
+      this.setState({
+        showForm:false,
+        showRates:false,
         showBuy:true
-      })
+      });
     }
   }
   addIns = (x) =>{
@@ -62,7 +71,7 @@ class HolderTest extends Component{
           <FormTest addDog={this.addDog} toggle={this.toggle} />
         </div>
         <div style={Rates}>
-          <RatesTest dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog} addIns={this.addIns}/>
+          <RatesTest toggle={this.toggle} dogs={this.state.dogs} deleteDog={this.deleteDog} addDog={this.addDog} editDog={this.editDog} addIns={this.addIns}/>
         </div>
         <div style={Buy}>
           <BuyTest style={Buy} dogs={this.state.dogs} />
