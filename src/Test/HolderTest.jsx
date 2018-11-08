@@ -7,7 +7,8 @@ class HolderTest extends Component{
   state = {
     dogs:[
       {id:1, state:'Nebraska', age:'10', color:'Brown'},
-      {id:2, state:'Iowa', age:'5', color:'Tan'}
+      {id:2, state:'Iowa', age:'5', color:'Tan'},
+      {id:3, state:'Florida', age:'10', color:'Black'}
     ],
     additionalIns:'',
     showForm:true,
