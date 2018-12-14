@@ -1,11 +1,13 @@
 import React from 'react';
-import Tooltip from '../Test/Tooltip';
+import Tooltip from './Tooltip';
 
-const Select = (props) =>{
-
+const Select = props =>{
   const label = props.tooltip ? (
-    <label className='form-label'>{props.title} <Tooltip hover={props.hover} handleMouseOut={props.handleMouseOut} handleMouseIn={props.handleMouseIn} tooltip={props.tooltip}></Tooltip></label>
-  ) : (<label className='form-label'>{props.title}</label>)
+    <label className='form-label'>{props.title}<Tooltip hover={props.hover} handleMouseOut={props.handleMouseOut} handleMouseIn={props.handleMouseIn} tooltip={props.tooltip}></Tooltip></label>
+  ) : (
+    <label className='form-label'>{props.title}</label>
+  );
+
   return(
     <div className='form-group'>
       {label}
@@ -19,7 +21,6 @@ const Select = (props) =>{
       </select>
     </div>
   );
-
 };
 
 export default Select;
