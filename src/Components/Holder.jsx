@@ -20,11 +20,19 @@ class Holder extends Component{
     });
   }
 
+  deleteDog = dog =>{
+    console.log(dog);
+  }
+
+  editDog = dog =>{
+    console.log(dog);
+  }
+
   render(){
     return(
       <Fragment>
         <DogForm dogs={this.state.dogs} addDog={this.addDog} />
-        <Rates  dogs={this.state.dogs}/>
+        <Rates  dogs={this.state.dogs} deleteDog={this.deleteDog} editDog={this.editDog} addDog={this.addDog}/>
       </Fragment>
     );
   }
