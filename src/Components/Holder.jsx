@@ -20,8 +20,13 @@ class Holder extends Component{
     });
   }
 
-  deleteDog = dog =>{
-    console.log(dog);
+  deleteDog = id =>{
+    const dogs = this.state.dogs.filter(dog =>{
+      return dog.id !== id;
+    });
+    this.setState({
+      dogs:dogs
+    });
   }
 
   editDog = dog =>{
