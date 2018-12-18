@@ -1,6 +1,7 @@
 import React, {Component,Fragment} from 'react';
 import DogForm from './DogForm';
 import Rates from './Rates';
+import FormClient from './TestEdit';
 
 class Holder extends Component{
   state = {
@@ -31,6 +32,7 @@ class Holder extends Component{
 
   editDog = dog =>{
     console.log(dog);
+    //Need to push this info into edit page
   }
 
   render(){
@@ -38,6 +40,7 @@ class Holder extends Component{
       <Fragment>
         <DogForm dogs={this.state.dogs} addDog={this.addDog} />
         <Rates  dogs={this.state.dogs} deleteDog={this.deleteDog} editDog={this.editDog} addDog={this.addDog}/>
+        <FormClient />
       </Fragment>
     );
   }
