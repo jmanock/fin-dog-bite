@@ -1,9 +1,12 @@
 import React,{Component} from 'react';
+import Select from './FormComponents/Select';
 
 class EditClient extends Component{
   onSubmit = (e) =>{
     e.preventDefault();
-    var text = this.refs.text.value.trim();
+    var text = this.refs.name.value.trim();
+    var state = this.props.state;
+
     if(!text){
       alert('Something should be here?');
       return;
@@ -11,15 +14,19 @@ class EditClient extends Component{
     if(this.props.isEdit){
       var updateTodo = {
         id:this.props.isEdit,
-        text:text
+        name:text,
+        state:state
       };
       this.props.onTodoUpdate(updateTodo);
     }else{
-      this.props.onClientAdd(text);
+      this.props.onClientAdd(text,state);
     }
   }
   onChangeEdit = (e) =>{
     this.props.changeTextEdit(e.target.value);
+  }
+  onChangeSelect = (e) =>{
+    this.props.changeSelectEdit(e.target.value);
   }
   render(){
     return(
@@ -27,7 +34,8 @@ class EditClient extends Component{
         <h1>Edit Client</h1>
         <form onSubmit={this.onSubmit}>
           <label>Name:
-            <input type='text' placeholder='name' ref='text' value={this.props.text} onChange={this.onChangeEdit} required />
+            <input type='text' placeholder='name' ref='name' value={this.props.name} onChange={this.onChangeEdit} required />
+            <Select value={this.props.state} options={['Florida','West Virgina', 'Iowa']} handleChange={this.onChangeSelect}  placeholder='state'/>
             <input type='submit' value='submit' />
           </label>
         </form>

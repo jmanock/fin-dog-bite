@@ -4,48 +4,57 @@ import ListClients from './TestHold';
 
 class FormClient extends Component {
   state ={
-    text:'',
+    name:'',
+    state:'',
     isEdit:0,
-    todos:[
-      {id:1,text:'Brian'},
-      {id:2,text:'Peez'},
-      {id:3,text:'Hank'}
-    ]
+    dogs:[
+      {id:1,name:'Brian',state:'Iowa'},
+      {id:2,name:'Peez',state:'West Virgina'},
+      {id:3,name:'Hank',state:'Florida'}
+    ],
+
   };
 
   handleEditClient = (item) =>{
     this.setState({
-      text:item.text,
+      name:item.name,
+      state:item.state,
       isEdit:item.id
     });
   }
 
   handleChangeTextEdit = (text) =>{
-    this.setState({text:text});
+    this.setState({name:text});
   }
 
-  handleClientAdd = (text) =>{
+  handleChangeSelectEdit = (text) =>{
+    this.setState({state:text});
+  }
+  handleClientAdd = (text,state) =>{
     var newText = {
-      id:this.state.todos.length + 1,
-      text:text
+      id:this.state.dogs.length + 1,
+      name:text,
+      state:state
     };
     this.setState({
-      todos:this.state.todos.concat(newText),
-      text:''
+      dogs:this.state.dogs.concat(newText),
+      name:'',
+      state:''
     });
   }
 
-  handleTodoUpdate = (todo) =>{
-    var todos = this.state.todos;
-    for(var i = 0; i<todos.length; i++){
-      if(todos[i].id === todo.id){
-        todos.splice(i,1);
+  handleTodoUpdate = (dog) =>{
+    var dogs = this.state.dogs;
+    for(var i = 0; i<dogs.length; i++){
+      if(dogs[i].id === dog.id){
+        dogs.splice(i,1);
       }
     }
-    todos.push(todo);
+    dogs.push(dog);
     this.setState({
-      todos:todos,
-      text:'',
+      dogs:dogs,
+      name:'',
+      state:'',
       isEdit:0
     });
   }
@@ -53,9 +62,9 @@ class FormClient extends Component {
   render(){
     return(
       <div>
-        <ListClients clients={this.state.todos} editClient={this.handleEditClient} />
+        <ListClients clients={this.state.dogs} editClient={this.handleEditClient}  />
         <hr />
-        <EditClient onClientAdd={this.handleClientAdd} text={this.state.text} {...this.state} changeTextEdit={this.handleChangeTextEdit} onTodoUpdate={this.handleTodoUpdate} />
+        <EditClient onClientAdd={this.handleClientAdd} text={this.state.name} {...this.state} changeTextEdit={this.handleChangeTextEdit} onTodoUpdate={this.handleTodoUpdate} changeSelectEdit={this.handleChangeSelectEdit} />
       </div>
     );
   }
