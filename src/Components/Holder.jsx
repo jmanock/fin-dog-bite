@@ -5,20 +5,20 @@ import DogList from './Edit';
 class Holder extends Component{
   state = {
     dogs:[
-      {id:1,state:'Iowa',color:'Orange',age:'10',name:'Peez'},
-      {id:2,state:'West Virgina',color:'Black',age:'7',name:'Hank'},
-      {id:3,state:'Florida',color:'White',age:'6',name:'Brian'}
+      {id:1,state:'Iowa',color:'Orange',age:'10',Name:'Peez'},
+      {id:2,state:'West Virgina',color:'Black',age:'7',Name:'Hank'},
+      {id:3,state:'Florida',color:'White',age:'6',Name:'Brian'}
     ],
     isEdit:0,
     state:'',
-    name:'',
+    Name:'',
     color:'',
     age:''
   };
 
   handleEditDog = (item) =>{
     this.setState({
-      name:item.name,
+      Name:item.Name,
       state:item.state,
       color:item.color,
       age:item.age,
@@ -26,8 +26,11 @@ class Holder extends Component{
     });
   }
 
-  handleChangeTextEdit = (text) =>{
-    this.setState({name:text});
+  handleChangeTextEdit = (x,text) =>{
+    if(x === 'name'){
+      this.setState({Name:text})
+    }
+    // this.setState({name:text});
   }
 
   handleChangeSelectEdit = (text) =>{
@@ -44,7 +47,7 @@ class Holder extends Component{
     };
     this.setState({
       dogs:this.state.dogs.concat(newText),
-      name:'',
+      Name:'',
       state:'',
       color:'',
       age:''
@@ -61,7 +64,7 @@ class Holder extends Component{
     dogs.push(dog);
     this.setState({
       dogs:dogs,
-      name:'',
+      Name:'',
       state:'',
       age:'',
       color:'',
@@ -72,7 +75,7 @@ class Holder extends Component{
   render(){
     return(
       <div>
-        <DogForm onDogAdd={this.handleDogAdd} text={this.state.name} {...this.state} changeTextEdit={this.handleChangeTextEdit} onDogUpdate={this.hanleDogUpdate} changeSelectEdit={this.handleChangeSelectEdit} />
+        <DogForm onDogAdd={this.handleDogAdd} text={this.state.Name} {...this.state} changeTextEdit={this.handleChangeTextEdit} onDogUpdate={this.hanleDogUpdate} changeSelectEdit={this.handleChangeSelectEdit} />
         <DogList dogs={this.state.dogs} editDog={this.handleEditDog}/>
       </div>
     );
