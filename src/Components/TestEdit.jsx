@@ -1,4 +1,7 @@
 import React,{Component} from 'react';
+import EditClient from './Edit';
+import ListClients from './TestHold';
+
 class FormClient extends Component {
   state ={
     text:'',
@@ -58,62 +61,5 @@ class FormClient extends Component {
   }
 }
 
-class ListClients extends Component{
-  editClient(item){
-    this.props.editClient(item);
-  }
-  render(){
-    let clients = this.props.clients;
-    return(
-      <div>
-        <h1>List Clients</h1>
-        <ul>
-          {clients.map(item => (
-            <li key={item.id}>
-              <span>{item.text} | {item.id}</span>
-              <button onClick={this.editClient.bind(this,item)}>Edit</button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
-}
-
-class EditClient extends Component{
-  onSubmit = (e) =>{
-    e.preventDefault();
-    var text = this.refs.text.value.trim();
-    if(!text){
-      alert('Something should be here?');
-      return;
-    }
-    if(this.props.isEdit){
-      var updateTodo = {
-        id:this.props.isEdit,
-        text:text
-      };
-      this.props.onTodoUpdate(updateTodo);
-    }else{
-      this.props.onClientAdd(text);
-    }
-  }
-  onChangeEdit = (e) =>{
-    this.props.changeTextEdit(e.target.value);
-  }
-  render(){
-    return(
-      <div>
-        <h1>Edit Client</h1>
-        <form onSubmit={this.onSubmit}>
-          <label>Name:
-            <input type='text' placeholder='name' ref='text' value={this.props.text} onChange={this.onChangeEdit} required />
-            <input type='submit' value='submit' />
-          </label>
-        </form>
-      </div>
-    );
-  }
-}
 
 export default FormClient;
