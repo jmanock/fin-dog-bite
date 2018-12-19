@@ -4,36 +4,56 @@ import Input from './FormComponents/Input';
 import Button from './FormComponents/Button';
 
 class DogForm extends Component{
-  state = {
-    age:'',
-    state:'',
-    color:''
-  }
-
-  handleChange = (e) =>{
-    this.setState({
-      [e.target.name]:e.target.value
-    });
-  }
-
-  handleSubmit = (e) =>{
+  onSubmit = (e) =>{
     e.preventDefault();
-    this.props.addDog(this.state);
+    var text = this.refs.name.value.trim();
+    var state = this.props.state;
+    var age = this.refs.age.value.trim();
+    var color = this.props.color;
+
+    if(!text){
+      alert('Please enter...');
+      return;
+    }
+
+    if(this.props.isEdit){
+      var updateDog = {
+        id:this.props.isEdit,
+        name:text,
+        state:state,
+        color:color,
+        age:age
+      };
+      this.props.onDogUpdate(updateDog);
+    }else{
+      this.props.onDogAdd(text,state);
+    }
+  }
+
+  onChangeEdit = (e) =>{
+    this.props.changeTextEdit(e.target.value);
+  }
+
+  onChangeSelect = (e) =>{
+    this.props.changeSelectEdit(e.target.value);
   }
 
   render(){
     return(
       <div className='container'>
-        <form onSubmit={this.handleSubmit}>
-          <Select title={'State'} name={'state'} options={['Iowa', 'South Carolina', 'West Virgina', 'Florida']} value={this.state.state} handleChange={this.handleChange} placeholder={'Statez'} />
+        <form onSubmit={this.onSubmit}>
+          <Select title={'State'} name={'state'} options={['West Virgina', 'Iowa', 'Florida']} value={this.props.state} placeholder={'State'} handleChange={this.onChangeSelect} />
 
-          <Input type={'number'} title={'Age'} name={'age'} value={this.state.age} placeholder={'Ages'} handleChange={this.handleChange} />
+          <Input type={'number'} title={'Age'} name={'age'} placeholder={'Age'} value={this.props.age} handleChange={this.onChangeEdit} />
 
-          <Select title={'Color'} name={'color'} options={['brown','black', 'white', 'orange']} value={this.state.color} handleChange={this.handleChange} placeholder={'Colorz'}/>
-          <Button type={'btn btn-primary'} className={'fa fa-paw'} title={'Continue'} action={this.props.toggle} value={'form'}></Button>
+          <Input type={'text'} title={'Name'} name={'name'} value={this.props.name} handleChange={this.onChangeEdit} placeholder={'Name'} />
+
+          <Select title={'Color'} value={this.props.color} name={'color'} options={['White','Black', 'Brown','Orange']} placeholder={'Color'} handleChange={this.onChangeSelect}/>
+
+          <Button type={'btn btn-primary'} className={'fa fa-paw'} title={'Next'}></Button>
         </form>
       </div>
-    )
+    );
   }
 }
 

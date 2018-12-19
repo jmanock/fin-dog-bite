@@ -1,74 +1,46 @@
 import React,{Component} from 'react';
-import EditClient from './Edit';
-import ListClients from './TestHold';
+import Select from './FormComponents/Select';
 
-class FormClient extends Component {
-  state ={
-    name:'',
-    state:'',
-    isEdit:0,
-    dogs:[
-      {id:1,name:'Brian',state:'Iowa'},
-      {id:2,name:'Peez',state:'West Virgina'},
-      {id:3,name:'Hank',state:'Florida'}
-    ],
+class EditClient extends Component{
+  onSubmit = (e) =>{
+    e.preventDefault();
+    var text = this.refs.name.value.trim();
+    var state = this.props.state;
 
-  };
-
-  handleEditClient = (item) =>{
-    this.setState({
-      name:item.name,
-      state:item.state,
-      isEdit:item.id
-    });
-  }
-
-  handleChangeTextEdit = (text) =>{
-    this.setState({name:text});
-  }
-
-  handleChangeSelectEdit = (text) =>{
-    this.setState({state:text});
-  }
-  handleClientAdd = (text,state) =>{
-    var newText = {
-      id:this.state.dogs.length + 1,
-      name:text,
-      state:state
-    };
-    this.setState({
-      dogs:this.state.dogs.concat(newText),
-      name:'',
-      state:''
-    });
-  }
-
-  handleTodoUpdate = (dog) =>{
-    var dogs = this.state.dogs;
-    for(var i = 0; i<dogs.length; i++){
-      if(dogs[i].id === dog.id){
-        dogs.splice(i,1);
-      }
+    if(!text){
+      alert('Something should be here?');
+      return;
     }
-    dogs.push(dog);
-    this.setState({
-      dogs:dogs,
-      name:'',
-      state:'',
-      isEdit:0
-    });
+    if(this.props.isEdit){
+      var updateTodo = {
+        id:this.props.isEdit,
+        name:text,
+        state:state
+      };
+      this.props.onTodoUpdate(updateTodo);
+    }else{
+      this.props.onClientAdd(text,state);
+    }
   }
-
+  onChangeEdit = (e) =>{
+    this.props.changeTextEdit(e.target.value);
+  }
+  onChangeSelect = (e) =>{
+    this.props.changeSelectEdit(e.target.value);
+  }
   render(){
     return(
       <div>
-        <ListClients clients={this.state.dogs} editClient={this.handleEditClient}  />
-        <hr />
-        <EditClient onClientAdd={this.handleClientAdd} text={this.state.name} {...this.state} changeTextEdit={this.handleChangeTextEdit} onTodoUpdate={this.handleTodoUpdate} changeSelectEdit={this.handleChangeSelectEdit} />
+        <h1>Edit Client</h1>
+        <form onSubmit={this.onSubmit}>
+          <label>Name:
+            <input type='text' placeholder='name' ref='name' value={this.props.name} onChange={this.onChangeEdit} required />
+            <Select value={this.props.state} options={['Florida','West Virgina', 'Iowa']} handleChange={this.onChangeSelect}  placeholder='state'/>
+            <input type='submit' value='submit' />
+          </label>
+        </form>
       </div>
     );
   }
 }
-
-
-export default FormClient;
+export default EditClient

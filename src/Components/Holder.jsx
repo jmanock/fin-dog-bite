@@ -1,49 +1,81 @@
-import React, {Component,Fragment} from 'react';
+import React,{Component} from 'react';
 import DogForm from './DogForm';
-import Rates from './Rates';
-import FormClient from './TestEdit';
+import DogList from './Edit';
 
 class Holder extends Component{
   state = {
     dogs:[
-      {id:1, state:'Iowa', color:'orange',age:'10'},
-      {id:2, state:'West Virgina',color:'white',age:'5'},
-      {id:3, state:'South Carolina',color:'black',age:'7'},
-      {id:4, state:'Florida', color:'brown',age:'1'}
-    ]
+      {id:1,state:'Iowa',color:'Orange',age:'10',name:'Peez'},
+      {id:2,state:'West Virgina',color:'Black',age:'7',name:'Hank'},
+      {id:3,state:'Florida',color:'White',age:'6',name:'Brian'}
+    ],
+    isEdit:0,
+    state:'',
+    name:'',
+    color:'',
+    age:''
   };
 
-  addDog = (dog) =>{
-    dog.id = Math.random();
-    let dogs = [...this.state.dogs,dog];
+  handleEditDog = (item) =>{
     this.setState({
-      dogs
+      name:item.name,
+      state:item.state,
+      color:item.color,
+      age:item.age,
+      isEdit:item.id
     });
   }
 
-  deleteDog = id =>{
-    const dogs = this.state.dogs.filter(dog =>{
-      return dog.id !== id;
-    });
+  handleChangeTextEdit = (text) =>{
+    this.setState({name:text});
+  }
+
+  handleChangeSelectEdit = (text) =>{
+    this.setState({state:text});
+  }
+
+  handleDogAdd = (text,state,color,age) =>{
+    var newText = {
+      id:this.state.dogs.length + 1,
+      name:text,
+      state:state,
+      color:color,
+      age:age
+    };
     this.setState({
-      dogs:dogs
+      dogs:this.state.dogs.concat(newText),
+      name:'',
+      state:'',
+      color:'',
+      age:''
     });
   }
 
-  editDog = dog =>{
-    console.log(dog);
-    //Need to push this info into edit page
+  handleDogUpdate = (dog) =>{
+    var dogs = this.state.dogs;
+    for(var i = 0; i < dogs.length; i++){
+      if(dogs[i].id === dog.id){
+        dogs.splice(i,1);
+      }
+    }
+    dogs.push(dog);
+    this.setState({
+      dogs:dogs,
+      name:'',
+      state:'',
+      age:'',
+      color:'',
+      isEdit:0
+    });
   }
 
   render(){
     return(
-      <Fragment>
-        <DogForm dogs={this.state.dogs} addDog={this.addDog} />
-        <Rates  dogs={this.state.dogs} deleteDog={this.deleteDog} editDog={this.editDog} addDog={this.addDog}/>
-        <FormClient />
-      </Fragment>
+      <div>
+        <DogForm onDogAdd={this.handleDogAdd} text={this.state.name} {...this.state} changeTextEdit={this.handleChangeTextEdit} onDogUpdate={this.hanleDogUpdate} changeSelectEdit={this.handleChangeSelectEdit} />
+        <DogList dogs={this.state.dogs} editDog={this.handleEditDog}/>
+      </div>
     );
   }
 }
-
-export default Holder
+export default Holder;
