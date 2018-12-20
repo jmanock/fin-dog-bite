@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import DogForm from './DogForm';
 import DogList from './Edit';
-
+import Holding from './TestHold';
 class Holder extends Component{
   state = {
     dogs:[
@@ -27,10 +27,9 @@ class Holder extends Component{
   }
 
   handleChangeTextEdit = (x,text) =>{
-    if(x === 'name'){
-      this.setState({Name:text})
-    }
-    // this.setState({name:text});
+    this.setState({
+      Name:text
+    });
   }
 
   handleChangeSelectEdit = (text) =>{
@@ -75,8 +74,8 @@ class Holder extends Component{
   render(){
     return(
       <div>
-        <DogForm onDogAdd={this.handleDogAdd} text={this.state.Name} {...this.state} changeTextEdit={this.handleChangeTextEdit} onDogUpdate={this.hanleDogUpdate} changeSelectEdit={this.handleChangeSelectEdit} />
-        <DogList dogs={this.state.dogs} editDog={this.handleEditDog}/>
+        <Holding />
+        
       </div>
     );
   }

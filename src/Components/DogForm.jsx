@@ -31,12 +31,6 @@ class DogForm extends Component{
   }
 
   onChangeEdit = (e) =>{
-    let target = e.target.name;
-    if(target === 'name'){
-      this.props.changeTextEdit(target,e.target.value);
-    }else{
-      console.log('no');
-    }
     this.props.changeTextEdit(e.target.value);
   }
 
