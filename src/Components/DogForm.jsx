@@ -46,7 +46,7 @@ class DogForm extends Component{
 
           <Input type={'number'} title={'Age'} name={'age'} placeholder={'Age'} value={this.props.age} handleChange={this.onChangeEdit} />
 
-          <Input type={'text'} title={'Name'} name={'name'} value={this.props.name} handleChange={this.onChangeEdit} placeholder={'Name'} />
+          <Input type={'text'} title={'Name'} name={'Name'} value={this.props.Name} handleChange={this.onChangeEdit} placeholder={'Name'} />
 
           <Select title={'Color'} value={this.props.color} name={'color'} options={['White','Black', 'Brown','Orange']} placeholder={'Color'} handleChange={this.onChangeSelect}/>
 

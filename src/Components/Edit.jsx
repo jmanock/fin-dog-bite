@@ -13,7 +13,7 @@ class DogList extends Component{
         <ul>
           {dogs.map(item =>(
             <li key={item.id}>
-              <span>{item.name} | {item.state} | {item.color} | {item.age}</span>
+              <span>{item.Name} | {item.state} | {item.color} | {item.age}</span>
               <button onClick={this.editDog.bind(this,item)}>Edit</button>
             </li>
           ))}
