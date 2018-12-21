@@ -23,7 +23,6 @@ class Holder extends Component{
           return event;
         }
       }),
-      isOpen:false,
       selectedEvent:null
     });
   }
@@ -42,7 +41,6 @@ class Holder extends Component{
     updatedEvents.push(newEvent);
     this.setState({
       events:updatedEvents,
-      isOpen:false,
       idCount:curId+1
     });
   }
