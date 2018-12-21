@@ -1,81 +1,69 @@
 import React,{Component} from 'react';
 
 const events = [
-    {
-      id: "1",
-      title: "Jeep Meet",
-      location: "Tooele, UT",
-      date: "12/03/2018",
-      info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quam."
-    },
-    {
-      id: "2",
-      title: "Dance Festival",
-      location: "SLC, UT",
-      date: "11/03/2018",
-      info: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed."
-    }
-  ];
-
-class Holder extends React.Component {
+  {id:'1', name:'Steve', color:'Orange', state:'West Virgina', age:'10'},
+  {id:'2', name:'Peez', color:'Black', state:'Florida', age:'6'},
+  {id:'3', name:'Brian', color:'White', state:'Nebraska', age:'11'}
+]
+class Holder extends Component{
   state = {
-    events : events,
-    isOpen: false,
-    idCount: 2,
-    selectedEvent: null
+    events:events,
+    isOpen:false,
+    idCount:3,
+    selectedEvent:null
   }
 
-  handleEditOpenEvent = (updatedEvent) => {
-    this.setState ({
-      events: this.state.events.map(event => {
-        if (event.id === updatedEvent.id) {
+  handleEditOpenEvent = updatedEvent => {
+    this.setState({
+      events:this.state.events.map(event => {
+        if(event.id === updatedEvent.id){
           return Object.assign({}, updatedEvent);
-        } else {
-          return event
+        }else{
+          return event;
         }
       }),
-      isOpen: false,
-      selectedEvent: null
-    })
+      isOpen:false,
+      selectedEvent:null
+    });
   }
 
-  handleEditEvent = (eventToUpdate) => () => {
+  handleEditEvent = eventToUpdate => () =>{
     this.setState({
-      selectedEvent: eventToUpdate,
-      isOpen: true
-    })
+      selectedEvent:eventToUpdate,
+      isOpen:true
+    });
   }
 
-  handleCreateEvent = (newEvent) => {
+  handleCreateEvent = newEvent =>{
     let curId = this.state.idCount;
     newEvent.id = curId+1;
     let updatedEvents = [...this.state.events];
     updatedEvents.push(newEvent);
     this.setState({
-      events: updatedEvents,
-      isOpen: false,
-      idCount: curId+1
-    })
+      events:updatedEvents,
+      isOpen:false,
+      idCount:curId+1
+    });
   }
 
-  handleDeleteEvent = (eventId) => () => {
+  handleDeleteEvent = eventId => () =>{
     let updatedEvents = this.state.events.filter(e => e.id !== eventId);
     this.setState({
-      events: updatedEvents
-    })
-    console.log("event deleted");
+      events:updatedEvents
+    });
+    console.log('event gone');
   }
 
-  openForm = () => {
+  openForm = () =>{
     this.setState({
-      selectedEvent: null,
-      isOpen: true
-    })
+      selectedEvent:null,
+      isOpen:true
+    });
   }
 
   render(){
     return(
-      <div className="dashboard">
+      <div className='container'>
         <EventList deleteEvent={this.handleDeleteEvent} handleEditEvent={this.handleEditEvent} events={this.state.events} />
         {this.state.isOpen ? <EventForm updateEvent={this.handleEditOpenEvent} openForm={this.openForm} selectedEvent={this.state.selectedEvent} createEvent={this.handleCreateEvent} /> : <AddEvent openForm={this.openForm} />}
       </div>
@@ -83,15 +71,10 @@ class Holder extends React.Component {
   }
 }
 
-
-
-
-
-
-class EventList extends React.Component {
+class EventList extends Component{
   render(){
     return(
-      <div className="eventList">
+      <div className='eventList'>
         {this.props.events.map((event) => {
           return <EventItem deleteEvent={this.props.deleteEvent} key={event.id} handleEditEvent={this.props.handleEditEvent} event={event} />
         })}
@@ -100,121 +83,105 @@ class EventList extends React.Component {
   }
 }
 
-
-
-
-
-
-class EventItem extends React.Component {
+class EventItem extends Component{
   render(){
     return(
-      <div className="eventItem">
-        <div className="edit">
-          <button onClick={this.props.handleEditEvent(this.props.event)}>Edit</button>
-        </div>
-        <div className="delete">
-          <button onClick={this.props.deleteEvent(this.props.event.id)}>Delete</button>
-        </div>
-        <h1>{this.props.event.title}</h1>
-        <h5>{this.props.event.location}</h5>
-        <h2>{this.props.event.date}</h2>
-        <h4>{this.props.event.info}</h4>
+      <div className='container'>
+        <ul>
+          <li><button onClick={this.props.handleEditEvent(this.props.event)}>Edit</button></li>
+          <li>{this.props.event.name}</li>
+          <li>{this.props.event.state}</li>
+          <li>{this.props.event.color}</li>
+          <li>{this.props.event.age}</li>
+          <li><button onClick={this.props.deleteEvent(this.props.event.id)}>Delete</button></li>
+        </ul>
       </div>
     );
   }
 }
 
-
-
-
-
-
-class EventForm extends React.Component {
-  state = {
-    event: {
-      title: '',
-      location: '',
-      date: '',
-      info: ''
+class EventForm extends Component{
+  state ={
+    event:{
+      name:'',
+      color:'',
+      state:'',
+      age:''
     }
   }
 
-  componentDidMount() {
-    if (this.props.selectedEvent !== null) {
+  componentDidMount(){
+    if(this.props.selectedEvent !== null){
       this.setState({
-        event: this.props.selectedEvent
-      })
+        event:this.props.selectedEvent
+      });
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedEvent !== this.props.selectedEvent) {
+  componentWillReceiveProps(nextProps){
+    if(nextProps.selectedEvent !== this.props.selectedEvent){
       this.setState({
-        event: nextProps.selectedEvent || {
-          title: '',
-          location: '',
-          date: '',
-          info: ''
+        event:nextProps.selectedEvent ||{
+          name:'',
+          color:'',
+          state:'',
+          age:''
         }
       })
     }
   }
 
-  onFormSubmit = (e) => {
+  onFormSubmit = e =>{
     e.preventDefault();
     const clone = this.state.event;
-    if (this.state.event.id) {
+    if(this.state.event.id){
       this.props.updateEvent(this.state.event);
-    } else {
+    }else{
       this.props.createEvent(clone);
       this.setState({
-        event: {
-          title: '',
-          location: '',
-          date: '',
-          info: ''
+        event:{
+          name:'',
+          color:'',
+          state:'',
+          age:''
         }
-      })
+      });
     }
   }
 
-  onInputChange = (e) => {
+  onInputChange = e =>{
     const newEvent = this.state.event;
     newEvent[e.target.name] = e.target.value;
     this.setState({
-      event: newEvent
-    })
+      event:newEvent
+    });
   }
 
   render(){
     return(
-      <div className="eventForm">
-        <p onClick={this.props.openForm} className="newEvent">New Event</p>
-        <form onSubmit={this.onFormSubmit} >
-          <input name="title" onChange={this.onInputChange} value={this.state.event.title} type="text" placeholder="Event Name" />
-          <input name="location" onChange={this.onInputChange} value={this.state.event.location} type="text" placeholder="Location" />
-          <input name="date" onChange={this.onInputChange} value={this.state.event.date} type="text" placeholder="Date" />
-          <textarea name="info" onChange={this.onInputChange} value={this.state.event.info} type="text" placeholder="Info" />
-          <input type="submit" value="Create Event" />
+      <div className='container'>
+        <button onClick={this.props.openForm} className='btn btn-danger'>Add Dog</button>
+        <form onSubmit={this.onFormSubmit}>
+          <input name='name' onChange={this.onInputChange} value={this.state.event.name} type='text' placeholder='Kname' />
+          <input name='color' onChange={this.onInputChange} value={this.state.event.color} type='text' placeholder='Color' />
+          <input name='state' onChange={this.onInputChange} value={this.state.event.state} type='text' placeholder='Statez' />
+          <input name='age' onChange={this.onInputChange} value={this.state.event.age} type='number' placeholder='AGE' />
+          <button type='submit' value='Create Event'>ce</button>
         </form>
       </div>
     );
   }
 }
 
-
-
-
-
-
-class AddEvent extends React.Component {
+class AddEvent extends Component{
   render(){
     return(
-      <div className="addEvent">
-        <button onClick={this.props.openForm}>Add Event</button>
+      <div className='container'>
+        <button onClick={this.props.openForm}>CreatEvent</button>
       </div>
     );
   }
 }
+
 
 export default Holder
