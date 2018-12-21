@@ -9,7 +9,7 @@ const events = [
 class Holder extends Component{
   state = {
     events:events,
-    isOpen:false,
+    isOpen:true,
     idCount:3,
     selectedEvent:null
   }
@@ -65,8 +65,9 @@ class Holder extends Component{
   render(){
     return(
       <div className='container'>
-        <EventList deleteEvent={this.handleDeleteEvent} handleEditEvent={this.handleEditEvent} events={this.state.events} />
+
         {this.state.isOpen ? <EventForm updateEvent={this.handleEditOpenEvent} openForm={this.openForm} selectedEvent={this.state.selectedEvent} createEvent={this.handleCreateEvent} /> : <AddEvent openForm={this.openForm} />}
+        <EventList deleteEvent={this.handleDeleteEvent} handleEditEvent={this.handleEditEvent} events={this.state.events} />
       </div>
     );
   }
@@ -87,16 +88,19 @@ class EventList extends Component{
 class EventItem extends Component{
   render(){
     return(
-      <div className='container'>
-        <ul>
-          <li><button onClick={this.props.handleEditEvent(this.props.event)}>Edit</button></li>
-          <li>{this.props.event.name}</li>
-          <li>{this.props.event.state}</li>
-          <li>{this.props.event.color}</li>
-          <li>{this.props.event.age}</li>
-          <li><button onClick={this.props.deleteEvent(this.props.event.id)}>Delete</button></li>
-        </ul>
-      </div>
+        <table>
+          <tbody>
+            <tr>
+              <td><button onClick={this.props.handleEditEvent(this.props.event)} className='btn btn-success'>Edit</button></td>
+              <td>{this.props.event.name}</td>
+              <td>{this.props.event.state}</td>
+              <td>{this.props.event.color}</td>
+              <td>{this.props.event.age}</td>
+              <td><button onClick={this.props.deleteEvent(this.props.event.id)} className='btn btn-danger'>Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+
     );
   }
 }
@@ -169,13 +173,12 @@ class EventForm extends Component{
   render(){
     return(
       <div className='container'>
-        <button onClick={this.props.openForm} className='btn btn-danger'>Add Dog</button>
         <form onSubmit={this.onFormSubmit}>
           <input name='name' onChange={this.onInputChange} value={this.state.event.name} type='text' placeholder='Kname' />
           <Select title={'Color'} name={'color'} options={['Orange', 'White', 'Black', 'Brown']} value={this.state.event.color} handleChange={this.onSelectChange} placeholder={'Color'} />
-          <input name='state' onChange={this.onInputChange} value={this.state.event.state} type='text' placeholder='Statez' />
+          <Select title={'State'} name={'state'} handleChange={this.onSelectChange} placeholder={'Statez'} value={this.state.event.state} options={['Florida', 'West Virgina', 'Nebraska', 'Iowa']} />
           <input name='age' onChange={this.onInputChange} value={this.state.event.age} type='number' placeholder='AGE' />
-          <button type='submit' value='Create Event'>ce</button>
+          <button type='submit' className='btn btn-danger'>Add Dog</button>
         </form>
       </div>
     );
@@ -186,7 +189,7 @@ class AddEvent extends Component{
   render(){
     return(
       <div className='container'>
-        <button onClick={this.props.openForm}>CreatEvent</button>
+        <button className='btn btn-success'>CreatEvent</button>
       </div>
     );
   }
