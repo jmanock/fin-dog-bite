@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Select from './FormComponents/Select';
 
 const events = [
   {id:'1', name:'Steve', color:'Orange', state:'West Virgina', age:'10'},
@@ -157,13 +158,21 @@ class EventForm extends Component{
     });
   }
 
+  onSelectChange = e =>{
+    const newEvent = this.state.event;
+    newEvent[e.target.name] = e.target.value;
+    this.setState({
+      event:newEvent
+    });
+  }
+
   render(){
     return(
       <div className='container'>
         <button onClick={this.props.openForm} className='btn btn-danger'>Add Dog</button>
         <form onSubmit={this.onFormSubmit}>
           <input name='name' onChange={this.onInputChange} value={this.state.event.name} type='text' placeholder='Kname' />
-          <input name='color' onChange={this.onInputChange} value={this.state.event.color} type='text' placeholder='Color' />
+          <Select title={'Color'} name={'color'} options={['Orange', 'White', 'Black', 'Brown']} value={this.state.event.color} handleChange={this.onSelectChange} placeholder={'Color'} />
           <input name='state' onChange={this.onInputChange} value={this.state.event.state} type='text' placeholder='Statez' />
           <input name='age' onChange={this.onInputChange} value={this.state.event.age} type='number' placeholder='AGE' />
           <button type='submit' value='Create Event'>ce</button>
