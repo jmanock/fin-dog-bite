@@ -4,9 +4,9 @@ import DogList from './DogList';
 import Rates from './Rates';
 
 const dogs = [
-  {id:'1',name:'Brian',color:'Orange',state:'West Virgina',age:'10'},
-  {id:'2',name:'Peez',color:'White',state:'Florida',age:'11'},
-  {id:'3',name:'Hank',color:'Black',state:'Iowa',age:'2'}
+  {id:'1',name:'Brian',color:'Orange',state:'West Virgina',age:'10',email:'brian@test.com'},
+  {id:'2',name:'Peez',color:'White',state:'Florida',age:'11',email:'peez@test.com'},
+  {id:'3',name:'Hank',color:'Black',state:'Iowa',age:'2',email:'hank@test.com'}
 ];
 
 class Holder extends Component{

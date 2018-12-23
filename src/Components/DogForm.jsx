@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import Select from './FormComponents/Select';
 import Button from './FormComponents/Button';
+import Input from './FormComponents/Input';
 
 class DogForm extends Component{
   state = {
@@ -8,7 +9,11 @@ class DogForm extends Component{
       name:'',
       color:'',
       state:'',
-      age:''
+      age:'',
+      email:''
+    },
+    options:{
+      state:['West Virginia','Florida','Iowa','Nebraska']
     }
   };
 
@@ -27,7 +32,8 @@ class DogForm extends Component{
           name:'',
           color:'',
           state:'',
-          age:''
+          age:'',
+          email:''
         }
       });
     }
@@ -42,7 +48,7 @@ class DogForm extends Component{
     }else{
       this.props.createDog(clone);
       this.setState({
-        dog:{name:'',age:'',color:'',state:''}
+        dog:{name:'',age:'',color:'',state:'',email:''}
       });
     }
   }
@@ -69,11 +75,24 @@ class DogForm extends Component{
     return(
       <div className='container'>
         <form onSubmit={this.onFormSubmit}>
-          <input name='name' onChange={this.onInputChange} value={this.state.dog.name} type='text' placeholder='NAME' />
-          <Select title={'Color'} name={'color'} options={['Black','White','Orange','Brown']} value={this.state.dog.color} placeholder={'Please Choose...'} handleChange={this.onInputChange}/>
-          <Select title={'State'} name={'state'} options={['West Virgina', 'Florida', 'Nebraska', 'Iowa']} placeholder={'PleaseChoose...'}  handleChange={this.onSelectChange} value={this.state.dog.state}/>
-          <input name='age' onChange={this.onSelectChange} value={this.state.dog.age} type='number' placeholder='AGE' />
-          <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
+          <div className='row'>
+            <div className='col-sm-2'></div>
+
+            <div className='col-sm-10'>
+
+              <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.dog.email} placeholder='Enter your email' handleChange={this.onInputChange} />
+
+              <Input type={'text'} title={"Dog's name:"} name={'name'} value={this.state.dog.name} placeholder={"Enter your dog's name"} handleChange={this.onInputChange} />
+
+              <Input type={'number'} title={'What age is this dog:'} name={'age'} value={this.state.dog.age} placeholder={"Enter your dog's age"} handleChange={this.onInputChange} />
+
+              <Input type={'text'} title={'What color is this dog:'} name={'color'} value={this.state.dog.color} placeholder={"Enter the dog's color:"} handleChange={this.onInputChange} />
+
+              <Select title={'State'} name={'state'} options={this.state.options.state} value={this.state.dog.state} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
+
+              <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
+            </div>
+          </div>
         </form>
       </div>
     )
