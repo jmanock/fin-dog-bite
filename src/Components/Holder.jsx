@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import DogForm from './DogForm';
 import DogList from './DogList';
+import Rates from './Rates';
 
 const dogs = [
   {id:'1',name:'Brian',color:'Orange',state:'West Virgina',age:'10'},
@@ -72,11 +73,11 @@ class Holder extends Component{
     });
   }
   render(){
-    console.log(this.state);
     return(
       <div className='container'>
         <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
+        <Rates state={this.state} />
       </div>
     );
   }
