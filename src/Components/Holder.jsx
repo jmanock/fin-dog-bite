@@ -1,10 +1,85 @@
-import React from 'react';
-import Test from './Test';
+import React,{Component} from 'react';
+import DogForm from './DogForm';
+import DogList from './DogList';
 
-const Holder = () =>{
-  return(
-    <Test />
-  );
-}
+const dogs = [
+  {id:'1',name:'Brian',color:'Orange',state:'West Virgina',age:'10'},
+  {id:'2',name:'Peez',color:'White',state:'Florida',age:'11'},
+  {id:'3',name:'Hank',color:'Black',state:'Iowa',age:'2'}
+];
+
+class Holder extends Component{
+  state = {
+    dogs:dogs,
+    isOpen:true,
+    idCount:3,
+    selectedDog:null,
+    addIns:'0'
+  };
+
+  handleEditOpenDog = updatedDog =>{
+    this.setState({
+      dogs:this.state.dogs.map(dog => {
+        if(dog.id === updatedDog.id){
+          return Object.assign({},updatedDog);
+        }else{
+          return dog;
+        }
+      }),
+      selectedDog:null
+    });
+  }
+
+  handleEditDog = dogToUpdate => () =>{
+    this.setState({
+      selectedDog:dogToUpdate,
+      isOpend:true
+    });
+  }
+
+  handleCreateDog = newDog =>{
+    let curId = this.state.idCount;
+    newDog.id = curId + 1;
+
+    let updatedDogs = [...this.state.dogs];
+    updatedDogs.push(newDog);
+
+    this.setState({
+      dogs:updatedDogs,
+      idCount:curId + 1
+    });
+  }
+
+  handleDeleteDog = dogId => () =>{
+    let updatedDogs = this.state.dogs.filter(e => e.id !== dogId);
+
+    this.setState({
+      dogs:updatedDogs
+    });
+    console.log('dog gone');
+  }
+
+  openForm = () =>{
+    this.setState({
+      selectedDog:null,
+      isOpen:true
+    });
+  }
+
+  addIns = (addInsured) =>{
+    this.setState({
+      addIns:addInsured
+    });
+  }
+  render(){
+    console.log(this.state);
+    return(
+      <div className='container'>
+        <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
+        <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
+      </div>
+    );
+  }
+};
 
 export default Holder;
