@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Select from './FormComponents/Select';
+import Button from './FormComponents/Button';
 
 class DogForm extends Component{
   state = {
@@ -72,7 +73,7 @@ class DogForm extends Component{
           <Select title={'Color'} name={'color'} options={['Black','White','Orange','Brown']} value={this.state.dog.color} placeholder={'Please Choose...'} handleChange={this.onInputChange}/>
           <Select title={'State'} name={'state'} options={['West Virgina', 'Florida', 'Nebraska', 'Iowa']} placeholder={'PleaseChoose...'}  handleChange={this.onSelectChange} value={this.state.dog.state}/>
           <input name='age' onChange={this.onSelectChange} value={this.state.dog.age} type='number' placeholder='AGE' />
-          <button type='submit' className='btn btn-success'>Add Dog</button>
+          <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
         </form>
       </div>
     )

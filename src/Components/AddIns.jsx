@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Select from './FormComponents/Select';
+import Button from './FormComponents/Button';
 
 class AddIns extends Component{
   state = {
@@ -20,7 +21,7 @@ class AddIns extends Component{
     return(
       <div>
         <Select title={'AddIns'} name={'addIns'} options={['0','1','2','3','4','5']} handleChange={this.onSelectChange} placeholder={'Additional Ins'} value={this.state.addIns} />
-        <button type='submit' onClick={this.addInsured}>Next</button>
+        <Button type={'btn btn-success'} action={this.addInsured} title={'Next'} className={'fa fa-paw'} />
       </div>
 
     );
