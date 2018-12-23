@@ -14,7 +14,8 @@ class Test extends Component{
     events:events,
     isOpen:true,
     idCount:3,
-    selectedEvent:null
+    selectedEvent:null,
+    addIns:'0'
   }
 
   handleEditOpenEvent = updatedEvent =>{
@@ -72,7 +73,7 @@ class Test extends Component{
     return(
       <div className='container'>
         {this.state.isOpen ? <EventForm updateEvent={this.handleEditOpenEvent} openForm={this.openForm} selectedEvent={this.state.selectedEvent} createEvent={this.handleCreateEvent} /> : <AddEvent openForm={this.openForm} />}
-        <EventList deleteEvent={this.handleDeleteEvent} handleEditEvent={this.handleEditEvent} events={this.state.events} />
+        <EventList deleteEvent={this.handleDeleteEvent} handleEditEvent={this.handleEditEvent} events={this.state.events} state={this.state}/>
       </div>
     );
   }
