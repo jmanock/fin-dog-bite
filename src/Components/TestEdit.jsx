@@ -1,46 +1,22 @@
 import React,{Component} from 'react';
-import Select from './FormComponents/Select';
 
-class EditClient extends Component{
-  onSubmit = (e) =>{
-    e.preventDefault();
-    var text = this.refs.name.value.trim();
-    var state = this.props.state;
-
-    if(!text){
-      alert('Something should be here?');
-      return;
-    }
-    if(this.props.isEdit){
-      var updateTodo = {
-        id:this.props.isEdit,
-        name:text,
-        state:state
-      };
-      this.props.onTodoUpdate(updateTodo);
-    }else{
-      this.props.onClientAdd(text,state);
-    }
-  }
-  onChangeEdit = (e) =>{
-    this.props.changeTextEdit(e.target.value);
-  }
-  onChangeSelect = (e) =>{
-    this.props.changeSelectEdit(e.target.value);
-  }
+class EventItem extends Component{
   render(){
     return(
-      <div>
-        <h1>Edit Client</h1>
-        <form onSubmit={this.onSubmit}>
-          <label>Name:
-            <input type='text' placeholder='name' ref='name' value={this.props.name} onChange={this.onChangeEdit} required />
-            <Select value={this.props.state} options={['Florida','West Virgina', 'Iowa']} handleChange={this.onChangeSelect}  placeholder='state'/>
-            <input type='submit' value='submit' />
-          </label>
-        </form>
-      </div>
-    );
+      <table>
+        <tbody>
+          <tr>
+            <td><button onClick={this.props.handleEditEvent(this.props.event)} className='btn btn-success'>Edit</button></td>
+            <td>{this.props.event.name}</td>
+            <td>{this.props.event.state}</td>
+            <td>{this.props.event.color}</td>
+            <td>{this.props.event.age}</td>
+            <td><button onClick={this.props.deleteEvent(this.props.event.id)} className='btn btn-danger'>Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    )
   }
 }
-export default EditClient
+
+export default EventItem;
