@@ -10,7 +10,8 @@ class DogForm extends Component{
       color:'',
       state:'',
       age:'',
-      email:''
+      email:'',
+      weight:''
     },
     options:{
       state:['West Virginia','Florida','Iowa','Nebraska']
@@ -33,7 +34,8 @@ class DogForm extends Component{
           color:'',
           state:'',
           age:'',
-          email:''
+          email:'',
+          weight:''
         }
       });
     }
@@ -48,7 +50,7 @@ class DogForm extends Component{
     }else{
       this.props.createDog(clone);
       this.setState({
-        dog:{name:'',age:'',color:'',state:'',email:''}
+        dog:{name:'',age:'',color:'',state:'',email:'',weight:''}
       });
     }
   }
@@ -87,6 +89,16 @@ class DogForm extends Component{
               <Input type={'number'} title={'What age is this dog:'} name={'age'} value={this.state.dog.age} placeholder={"Enter your dog's age"} handleChange={this.onInputChange} />
 
               <Input type={'text'} title={'What color is this dog:'} name={'color'} value={this.state.dog.color} placeholder={"Enter the dog's color:"} handleChange={this.onInputChange} />
+
+              <div className='form-group'>
+                <label className='form-control-label'>What is the weight of this dog:</label>
+                <div className='input-group'>
+                  <input type='number' className='form-control' name='weight' value={this.state.dog.weight} placeholder="Enter dog's weight:" aria-label='dogs weight' aira-describeby='basic' onChange={this.onInputChange} />
+                  <div className='input-group-append'>
+                    <span className='input-group-text' id='basic'>LBs</span>
+                  </div>
+                </div>
+              </div>
 
               <Select title={'State'} name={'state'} options={this.state.options.state} value={this.state.dog.state} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
 
