@@ -1,15 +1,15 @@
 import React from 'react';
 import './App.css';
 import {Switch,BrowserRouter,Route} from 'react-router-dom';
-import Navbar from './Components/Navbar';
-import About from './Components/About';
-import Questions from './Components/Questions';
-import Privacy from './Components/Privacy';
-import Terms from './Components/Terms';
-import Rater from './Components/Rater';
+import Navbar from './Components/PageComponents/Navbar';
+import About from './Components/PageComponents/About';
+import Questions from './Components/PageComponents/Questions';
+import Privacy from './Components/PageComponents/Privacy';
+import Terms from './Components/PageComponents/Terms';
+import Rater from './Components/PageComponents/Rater';
 import Holder from './Components/Holder';
-import Main from './Components/Main';
-import Footer from './Components/Footer';
+import Main from './Components/PageComponents/Main';
+import Footer from './Components/PageComponents/Footer';
 
 const App = () =>{
   return(

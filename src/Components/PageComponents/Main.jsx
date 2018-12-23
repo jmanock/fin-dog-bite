@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Button from './FormComponents/Button';
+import Button from '../FormComponents/Button';
 
 const Main = () =>(
   <div className='container'>
