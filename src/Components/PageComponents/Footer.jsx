@@ -12,7 +12,7 @@ const Footer = () =>(
             230 N. Westmonte Drive <br /> Suite 2100 <br /> Altamonte Springs, FL 32714 <br /> Phone: 800.721.3326 or <br /> 407.865.7477 ext: 101 <br /> Fax: 407.865.7557
           </address>
         </div>
-        <div classNmae='col-sm-6'>
+        <div className='col-sm-6'>
           <h5 className='text-uppercase'>quick links</h5>
           <ul className='list-unstyled'>
             <li><Link to='/'>Home</Link></li>

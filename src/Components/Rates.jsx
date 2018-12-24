@@ -3,6 +3,12 @@ import React,{Component} from 'react';
 class Rates extends Component{
   render(){
     console.log(this.props.state.dogs, this.props.state.addIns);
+    const Item = this.props.state.dogs.map((dog) => {
+      return <tr key={dog.id}>
+        <td>{dog.name}</td>
+        <td>{this.props.state.addIns}</td>
+      </tr>
+    });
     return(
       <div className='container'>
         <h3>Please Choose your coverage Limit, Premium for your Annual Policy</h3>
@@ -19,6 +25,9 @@ class Rates extends Component{
               <th>Select Coverage</th>
             </tr>
           </thead>
+          <tbody>
+            {Item}
+          </tbody>
         </table>
       </div>
     )
