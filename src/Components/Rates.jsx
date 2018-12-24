@@ -1,14 +1,26 @@
 import React,{Component} from 'react';
 
+const rates = [
+  {id:1,coverage:'$25,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
+  {id:2,coverage:'$50,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
+  {id:3,coverage:'$100,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
+  {id:4,coverage:'$300,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''}
+];
+
 class Rates extends Component{
   render(){
     console.log(this.props.state.dogs, this.props.state.addIns);
-    const Item = this.props.state.dogs.map((dog) => {
-      return <tr key={dog.id}>
-        <td>{dog.name}</td>
-        <td>{this.props.state.addIns}</td>
+    const list = rates.map((x => {
+      return <tr key={x.id}>
+        <td>{x.coverage}</td>
+        <td>{x.total}</td>
+        <td>{x.installments}</td>
+        <td>{x.down}</td>
+        <td>{x.insAmount}</td>
+        <td>{x.first}</td>
+        <td><input type='radio'></input></td>
       </tr>
-    });
+    }));
     return(
       <div className='container'>
         <h3>Please Choose your coverage Limit, Premium for your Annual Policy</h3>
@@ -26,7 +38,7 @@ class Rates extends Component{
             </tr>
           </thead>
           <tbody>
-            {Item}
+            {list}
           </tbody>
         </table>
       </div>
