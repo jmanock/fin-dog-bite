@@ -3,7 +3,7 @@ import React from 'react';
 const Questions = () =>(
   <div className='container'>
     <h3>Frequently Asked Questions</h3>
-    <ul className='list-group'>
+    <ul className='list-group list-group-flush'>
       <li className='list-group-item'><a href='#allBreeds'>Do you cover all breeds</a></li>
       <li className='list-group-item'><a href='#HowDoI'>How do I do this:</a></li>
       <li className='list-group-item'><a href='#whatIs'>What is a <span className='title-name'>Canine Liability Policy</span></a></li>
