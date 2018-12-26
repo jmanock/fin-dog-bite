@@ -40,6 +40,62 @@ const About = () =>{
           </p>
         </div>
       </div>
+
+      <h3 className='text-center'>Deborah J. Turner, CPCU, AAI</h3>
+      <div className='card'>
+        <div className='card-body'>
+          <h4 className='card-title'>Education and Designations:</h4>
+            <ul className='list-group'>
+              <li className='list-group-item'>Accredited Advisor of Insurange, 1995</li>
+              <li className='list-group-item'>Chartered Life Underwriter completed Parts 312,316,317,320,331, and 328</li>
+              <li className='list-group-item'>Certified Professional Insurance Woman, 1986</li>
+              <li className='list-group-item'>Chartered Property Casualty Underwriter, CPCU, 1986</li>
+              <li className='list-group-item'>Florida State University, B.S. Degree, Risk Management and Insurance, 1980</li>
+              <li className='list-group-item'>Okaloosa-Walton Junior College A.A. Degree in Marketing, 1977</li>
+              <li className='list-group-item'>Insurance Licenses, Property/Casualty, 2-20, Surplus Lines 1-20, Life-Health 2-18</li>
+              <li className='list-group-item'>Licensed in all states but Alaska</li>
+            </ul>
+        </div>
+      </div>
+
+      <div className='card'>
+        <div className='card-body'>
+          <h4 className='card-title'>Community Activities:</h4>
+          <ul className='list-group'>
+            <li className='list-group-item'>Central Florida Chapter, Society of Certified Property and Casualty Underwriters (CPCU), Past President. Selected as "Standard Setter" by the Society's National President for February 2000. The CPCU Designation is considered to be the highest Professional Designation in the Property and Casualty. <a href='https://centralflorida.cpcusociety.org/about/leadership/past-presidents-central-florida-chapter'>centralFlorida.cpcusociety.org/about/leadership/past-presidents-central-florida-chapter</a></li>
+            <li className='list-group-item'>Center for Drug Free Living, Past Chairman of the Board, and served for 16 years as a Board member.</li>
+            <li className='list-group-item'>Greater Orlando Chamber of Commerce, Leadership Orlando, Class of 1988-1989. Past member of Board of Directors for Alumni Association.</li>
+            <li className='list-group-item'>Selected as Insurance Woman of the Year, 1987-1988 by Central FL Chapter of Professional Insurance Women.</li>
+            <li className='list-group-item'>Rotary District Governor for District 6980 2001-2002, Rotarian of the Year 1998-1999 for "Service About Self". Rotary Club of College Park, President 1995-1996, District Governors Representative, 1996-1997, Member of District Finance Committee 1996-1999. District Coordinator, 1997-1998. Multiple Paul Harris Fellow, Benefactor and Charter Member of the Bequest Society. <a href='https://books.google.com/books?id=jFQUpJEyWWkC&pg=PA116&lpg=PA116&dq=Rotary+International+Deborah+J+Turner&source=bl&ots=lx1HMqhEws&sig=sGeqxxiZ9RbP7DpObi-JSLanN-E&hl=en&sa=X&ei=yDygVZfoE4_GogT8s5TIBg&ved=0CB4Q6AEwAA#v=onepage&q=Rotary%20International%20Deborah%20J%20Turner&f=false'>Deborah Turner</a></li>
+            <li className='list-group-item'>Member of Florida Land Title Association</li>
+            <li className='list-group-item'>Florida Approved CEU instructor for Title Agents. Designed and Presented a Risk Management program to the Orlando Regional REALTOR&copy; Association.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className='card'>
+        <div className='card-body'>
+          <h4 className='card-title'>TV Interviews:</h4>
+          <ul className='list-group'>
+            <li className='list-group-item'><a href='https://www.clickorlando.com/flashpoint/flashpoint-discusses-recent-dog-attacks'>Flashpoint discusses recent dog attacks</a></li>
+            <li className='list-group-item'><a href='https://www.clickorlando.com/news/florida/orange-county/animal-abuse-allegations-surface-against-orange-county-animal-services'>Animal abuse allegations surface against Orange County Animal Services</a></li>
+            <li className='list-group-item'><a href='https://www.clickorlando.com/news/are-lightning-protection-systems-worth-it'>Are lightning protection systems worth it?</a></li>
+            <li className='list-group-item'><a href='http://otv.ocfl.net/otv/bcc2013/bcc082713/Default.html'>Orange County Government Board of County Commissioners</a> Scroll to 20:34 unless you want to watch some boring Board of County Commission comments.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className='card'>
+        <div className='card-body'>
+          <h4 className='card-title'>Canine Related</h4>
+          <ul className='list-group'>
+            <li className='list-group-item'>Appointed and chaired the Orange County Advisory Board detemining and classification of Dangerous Dogs served 2003-2007.</li>
+            <li className='list-group-item'>Past Chair of the Orange County Advisory Board of Animal Services. Termed out in May 2015, served four and a half years 2010-2015.</li>
+            <li className='list-group-item'>Entered Jazz in the Tufts University Study for Dogs with Low/Normal Thyroid levels and Owner Directed Aggression.</li>
+            <li className='list-group-item'>Past member of Be an Angel Pet Therapy in Association with Therapy Dogs, Inc. <a href='https://www.therapydogs.com/'>Therapy Dogs</a> <a href='https://www.beanangeltherapydogs.org/'>Be an Angel</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
   )
 }
