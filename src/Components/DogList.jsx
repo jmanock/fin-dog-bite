@@ -16,15 +16,15 @@ class DogList extends Component{
     })
     return(
       <div className='container'>
-        <table>
+        <table className='table'>
           <thead>
             <tr>
-              <th>Edit</th>
-              <th>Name</th>
-              <th>Color</th>
-              <th>State</th>
-              <th>Age</th>
-              <th>Delete</th>
+              <th scope='col'>Edit</th>
+              <th scope='col'>Name</th>
+              <th scope='col'>Color</th>
+              <th scope='col'>State</th>
+              <th scope='col'>Age</th>
+              <th scope='col'>Delete</th>
             </tr>
           </thead>
           <tbody>

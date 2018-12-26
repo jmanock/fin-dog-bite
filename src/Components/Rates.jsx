@@ -12,7 +12,7 @@ class Rates extends Component{
     console.log(this.props.state.dogs, this.props.state.addIns);
     const list = rates.map((x => {
       return <tr key={x.id}>
-        <td>{x.coverage}</td>
+        <td >{x.coverage}</td>
         <td>{x.total}</td>
         <td>{x.installments}</td>
         <td>{x.down}</td>
@@ -25,16 +25,16 @@ class Rates extends Component{
       <div className='container'>
         <h3>Please Choose your coverage Limit, Premium for your Annual Policy</h3>
         <small>NOTE: Installments are always billed on the 3rd day of the month</small>
-        <table>
+        <table className='table'>
           <thead>
             <tr>
-              <th>Coverage Limit</th>
-              <th>Total</th>
-              <th># Installments</th>
-              <th>Down Payment</th>
-              <th>Installment Amount</th>
-              <th>First Bill</th>
-              <th>Select Coverage</th>
+              <th scope='col'>Coverage Limit</th>
+              <th scope='col'>Total</th>
+              <th scope='col'># Installments</th>
+              <th scope='col'>Down Payment</th>
+              <th scope='col'>Installment Amount</th>
+              <th scope='col'>First Bill</th>
+              <th scope='col'>Select Coverage</th>
             </tr>
           </thead>
           <tbody>
