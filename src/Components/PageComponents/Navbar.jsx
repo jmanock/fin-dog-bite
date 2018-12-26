@@ -9,10 +9,10 @@ const Navbar = () =>(
     </button>
     <div className='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul className='navbar-nav mr-auto'>
-        <li className='nav-item'><Link to='/Quote' className='nav-link'>New Quote</Link></li>
-        <li className='nav-item'><Link to='/About' className='nav-link'>About</Link></li>
-        <li className='nav-item'><Link to='/Questions' className='nav-link'>F.A.Q.</Link></li>
-        <li className='nav-item'><a href='tel:8555436449' className='nav-link'>855.543.6449</a></li>
+        <li className='nav-item'><Link to='/Quote' className='nav-link'><i className='fa fa-plus-circle'></i> New Quote</Link></li>
+        <li className='nav-item'><Link to='/About' className='nav-link'><i className='fa fa-paw'></i> About</Link></li>
+        <li className='nav-item'><Link to='/Questions' className='nav-link'> <i className='fa fa-question-circle'></i> F.A.Q.</Link></li>
+        <li className='nav-item'><a href='tel:8555436449' className='nav-link'><i className='fa fa-phone-square'></i> 855.543.6449</a></li>
       </ul>
     </div>
   </nav>

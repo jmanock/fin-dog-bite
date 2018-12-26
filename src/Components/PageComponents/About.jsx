@@ -3,8 +3,8 @@ import debbie from '../Images/debbie.jpg';
 
 const About = () =>{
   return(
-    <div className='container'>
-      <h3 className='text-center'>About Canine Liability Insurance</h3>
+    <div className='container' style={{marginTop:50,marginBottom:50}}>
+      <h3 className='sectionTitle text-center'>About Canine Liability Insurance</h3>
       <div className='card'>
         <div className='card-body'>
           <div className='row'>

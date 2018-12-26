@@ -24,7 +24,7 @@ const Footer = () =>(
           </ul>
         </div>
       </div>
-      <span className='text-center'>&copy; 2018 Dean Insurance Agency</span>
+      <span className='text-center'>&copy;2018 Dean Insurance Agency</span>
     </div>
   </footer>
 );

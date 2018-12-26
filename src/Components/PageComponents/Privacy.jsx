@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Privacy = () =>(
-  <div className='container'>
+  <div className='container' style={{marginTop:50,marginBottom:50}}>
     <h3 className='sectionTitle text-center'>Privacy &amp; Security Policy</h3>
     <div className='card'>
       <div className='card-body'>

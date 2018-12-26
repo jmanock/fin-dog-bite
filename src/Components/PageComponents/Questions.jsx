@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Questions = () =>(
-  <div className='container'>
-    <h3 className='sectionTitle'>Frequently Asked Questions</h3>
+  <div className='container' style={{marginTop:50,marginBottom:50}}>
+    <h3 className='sectionTitle text-center'>Frequently Asked Questions</h3>
     <ul className='list-group list-group-flush'>
       <li className='list-group-item'><a href='#allBreeds'>Do you cover all breeds</a></li>
       <li className='list-group-item'><a href='#HowDoI'>How do I do this:</a></li>
