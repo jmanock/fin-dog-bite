@@ -18,7 +18,7 @@ class Rates extends Component{
         <td>{x.down}</td>
         <td>{x.insAmount}</td>
         <td>{x.first}</td>
-        <td><input type='radio'></input></td>
+        <td><input type='radio' name='policy' value={this.stat}></input>  Select</td>
       </tr>
     }));
     return(
