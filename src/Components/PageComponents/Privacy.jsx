@@ -2,11 +2,17 @@ import React from 'react';
 
 const Privacy = () =>(
   <div className='container'>
-    <h3 className='sectionTitle'>Privacy &amp; Security Policy</h3>
-    <p>We would like to take this opportunity to both thank you for visiting our website and to share with you the importance <span className='title-name'>Canine Liability</span> places upon protecting your private information.</p>
+    <h3 className='sectionTitle text-center'>Privacy &amp; Security Policy</h3>
     <div className='card'>
       <div className='card-body'>
-        <h4 className='card-title text-center'>Collection of information:</h4>
+        <p className='card-text'>
+          We would like to take this opportunity to both thank you for visiting our website and to share with you the importance <span className='title-name'>Canine Liability</span> places upon protecting your private information.
+        </p>
+      </div>
+    </div>
+    <div className='card'>
+      <div className='card-body'>
+        <h4 className='card-title'>Collection of information:</h4>
         <p className='card-text'>
           While you are visiting our website, we may or may not collect personal.confidential information - written, in-person, telephone, facsimile, electronically and online - that may assist us in preparing a quote for you and in helping us to negotiate with our carriers on your behalf. The personal information we collect may include your name, address, policy or claim information, financial or other information as may be required by our underwriters.
         </p>
@@ -21,7 +27,7 @@ const Privacy = () =>(
 
     <div className='card'>
       <div className='card-body'>
-        <h4 className='card-title text-center'>Disclosure of Information:</h4>
+        <h4 className='card-title'>Disclosure of Information:</h4>
         <p className='card-text'>
           We assure you that is not our policy to share your private information with non-affiliated third parties other than as permitted or required by law. For example, we may share all of the information listed above with non-affiliated third parties for, including but not limited to, the following reasons:
         </p>
@@ -38,7 +44,7 @@ const Privacy = () =>(
 
     <div className='card'>
       <div className='card-body'>
-        <h4 className='card-title text-center'>Protection of Information:</h4>
+        <h4 className='card-title'>Protection of Information:</h4>
         <p className='card-text'>
           Our Company maintains physical, electronic and procedural safeguards that comply with state and federal regulations to protect the confidentiality of your personal information.
         </p>
