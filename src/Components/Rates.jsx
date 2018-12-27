@@ -1,13 +1,23 @@
 import React,{Component} from 'react';
+import Button from './FormComponents/Button';
+
+const x = 100;
 
 const rates = [
-  {id:1,coverage:'$25,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
-  {id:2,coverage:'$50,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
-  {id:3,coverage:'$100,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
-  {id:4,coverage:'$300,000',total:'',installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''}
+  {id:1,coverage:'$25,000',total:'$'+(x+100),installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
+  {id:2,coverage:'$50,000',total:x,installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
+  {id:3,coverage:'$100,000',total:x,installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''},
+  {id:4,coverage:'$300,000',total:x,installments:'3',down:'',insAmount:'',first:'2/3/2019',select:''}
 ];
 
 class Rates extends Component{
+  state = {
+    selected:{}
+  }
+  handleSelect = (e) =>{
+    
+  }
+
   render(){
     console.log(this.props.state.dogs, this.props.state.addIns);
     const list = rates.map((x => {
@@ -18,7 +28,7 @@ class Rates extends Component{
         <td>{x.down}</td>
         <td>{x.insAmount}</td>
         <td>{x.first}</td>
-        <td><input type='radio' name='policy' value={this.stat}></input>  Select</td>
+        <td><input type='radio' name='policy' onChange={this.handleSelect(x)}></input>  Select</td>
       </tr>
     }));
     return(
@@ -41,6 +51,7 @@ class Rates extends Component{
             {list}
           </tbody>
         </table>
+        <Button action={this.something} type={'btn btn-primary'} className={'fa fa-paw'} title={'Next'}/>
       </div>
     )
   }
