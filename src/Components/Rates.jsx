@@ -12,10 +12,10 @@ const rates = [
 
 class Rates extends Component{
   state = {
-    selected:{}
+    selected:''
   }
   handleSelect = (e) =>{
-    
+    console.log(e);
   }
 
   render(){
