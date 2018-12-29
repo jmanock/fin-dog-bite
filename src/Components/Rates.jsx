@@ -12,14 +12,15 @@ const rates = [
 
 class Rates extends Component{
   state = {
-    selected:''
-  }
-  handleSelect = (e) =>{
-    console.log(e);
+    rates:{
+      id:'',total:'',coverage:'',insAmount:'',down:''
+    }
   }
 
   render(){
-    console.log(this.props.state.dogs, this.props.state.addIns);
+    // console.log(this.props.state.dogs, this.props.state.addIns);
+    console.log(this.props.state);
+    //console.log(this.state);
     const list = rates.map((x => {
       return <tr key={x.id}>
         <td >{x.coverage}</td>
@@ -28,7 +29,7 @@ class Rates extends Component{
         <td>{x.down}</td>
         <td>{x.insAmount}</td>
         <td>{x.first}</td>
-        <td><input type='radio' name='policy' onChange={this.handleSelect(x)}></input>  Select</td>
+        <td>Select <input type='radio' name='rates' onChange={(e) => this.props.addRates(x)}/></td>
       </tr>
     }));
     return(

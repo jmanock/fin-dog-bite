@@ -15,7 +15,10 @@ class Holder extends Component{
     isOpen:true,
     idCount:3,
     selectedDog:null,
-    addIns:'0'
+    addIns:'0',
+    rates:{
+      id:'',total:'',coverage:'',insAmount:'',down:''
+    }
   };
 
   handleEditOpenDog = updatedDog =>{
@@ -72,12 +75,18 @@ class Holder extends Component{
       addIns:addInsured
     });
   }
+
+  addRates = (rates)=>{
+    this.setState({
+      rates:{id:rates.id,total:rates.total,coverage:rates.coverage, insAmount:rates.insAmount,down:rates.down}
+    })
+  }
   render(){
     return(
       <div className='container'>
         <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
-        <Rates state={this.state} />
+        <Rates state={this.state} addRates={this.addRates}/>
       </div>
     );
   }
