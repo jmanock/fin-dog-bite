@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import Select from './FormComponents/Select';
 import Button from './FormComponents/Button';
 import Input from './FormComponents/Input';
-
+import States from './OptionsComponents/State';
 class DogForm extends Component{
   state = {
     dog:{
@@ -14,7 +14,7 @@ class DogForm extends Component{
       weight:''
     },
     options:{
-      state:['West Virginia','Florida','Iowa','Nebraska']
+      state:States
     }
   };
 
@@ -100,7 +100,7 @@ class DogForm extends Component{
                 </div>
               </div>
 
-              <Select title={'State'} name={'state'} options={this.state.options.state} value={this.state.dog.state} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
+              <Select title={'State:'} name={'state'} options={this.state.options.state} value={this.state.dog.state} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
 
               <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
             </div>
