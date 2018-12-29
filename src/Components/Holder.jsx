@@ -82,13 +82,19 @@ class Holder extends Component{
       rates:{id:rates.id,total:rates.total,coverage:rates.coverage, insAmount:rates.insAmount,down:rates.down}
     })
   }
+
+  personalInfo = (person) =>{
+    console.log(person);
+  }
   render(){
     return(
       <div className='container'>
         <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
+
         <Rates state={this.state} addRates={this.addRates}/>
-        <PersonalInfo />
+        
+        <PersonalInfo personalInfo={this.personalInfo} state={this.state} />
       </div>
     );
   }
