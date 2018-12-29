@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import DogForm from './DogForm';
 import DogList from './DogList';
 import Rates from './Rates';
+import PersonalInfo from './PersonalInfo';
 
 const dogs = [
   {id:'1',name:'Brian',color:'Orange',state:'West Virginia',age:'10',email:'brian@test.com',weight:'2'},
@@ -87,6 +88,7 @@ class Holder extends Component{
         <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
         <Rates state={this.state} addRates={this.addRates}/>
+        <PersonalInfo />
       </div>
     );
   }

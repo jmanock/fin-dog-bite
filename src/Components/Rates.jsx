@@ -17,10 +17,7 @@ class Rates extends Component{
     }
   }
 
-  render(){
-    // console.log(this.props.state.dogs, this.props.state.addIns);
-    console.log(this.props.state);
-    //console.log(this.state);
+  render(){    
     const list = rates.map((x => {
       return <tr key={x.id}>
         <td >{x.coverage}</td>
