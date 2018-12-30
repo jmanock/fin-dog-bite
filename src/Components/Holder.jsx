@@ -96,7 +96,7 @@ class Holder extends Component{
         <Rates state={this.state} addRates={this.addRates}/>
 
         <PersonalInfo personalInfo={this.personalInfo} state={this.state} />
-        <InsuredInfo />
+        <InsuredInfo  state={this.state}/>
       </div>
     );
   }
