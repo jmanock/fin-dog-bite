@@ -3,6 +3,8 @@ import Select from './FormComponents/Select';
 import Button from './FormComponents/Button';
 import Input from './FormComponents/Input';
 import States from './OptionsComponents/State';
+import Breeds from './OptionsComponents/Breeds';
+
 class DogForm extends Component{
   state = {
     dog:{
@@ -14,7 +16,8 @@ class DogForm extends Component{
       weight:''
     },
     options:{
-      state:States
+      state:States,
+      breed:Breeds
     }
   };
 
@@ -101,7 +104,9 @@ class DogForm extends Component{
               </div>
 
               <Select title={'State:'} name={'state'} options={this.state.options.state} value={this.state.dog.state} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
-              
+
+              <Select title={'Choose a breed:'} name={'breed'} options={this.state.options.breed} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
+
               <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
             </div>
           </div>
