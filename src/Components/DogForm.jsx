@@ -101,7 +101,7 @@ class DogForm extends Component{
               </div>
 
               <Select title={'State:'} name={'state'} options={this.state.options.state} value={this.state.dog.state} placeholder={'Please choose...'} handleChange={this.onSelectChange}/>
-
+              
               <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
             </div>
           </div>

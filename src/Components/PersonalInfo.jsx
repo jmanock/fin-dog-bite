@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import Input from './FormComponents/Input';
 import Select from './FormComponents/Select';
 import States from './OptionsComponents/State';
@@ -7,7 +7,7 @@ import Button from './FormComponents/Button';
 class PersonalInfo extends Component{
   state = {
     personalInfo:{
-      fName:'',lName:'',date:'',fNameSpouse:'',lNameSpouse:'',address:'',city:'',state:'',zip:'',dogMailingAddress:'',phoneNumber:'',faxNumber:''
+      fName:'',lName:'',date:'',fNameSpouse:'',lNameSpouse:'',address:'',city:'',state:'',zip:'',dogMailingAddress:'',phoneNumber:'',faxNumber:'',dogAddress:'',dogCity:'',dogZip:'',dogState:'',dogReason:''
     },
     stateOptions:States
   }
@@ -19,7 +19,22 @@ class PersonalInfo extends Component{
     })
   }
   render(){
-    console.log(this.state);
+    let message;
+    if(this.state.personalInfo.dogMailingAddress === 'No'){
+      message = (
+        <Fragment>
+          <Input type={'text'} title={"Dog's Address:"} name={'dogAddress'} value={this.state.personalInfo.dogAddress} placeholder={'Please enter dogs address:'} handleChange={this.onInputChange} />
+
+          <Input type={'text'} title={"Dog's City:"} name={'dogCity'} value={this.state.personalInfo.dogCity} placeholder={'Please enter dogs city:'} handleChange={this.onInputChange} />
+
+          <Select title={"Dog's State:"} name={'dogState'} options={this.state.stateOptions} value={this.state.personalInfo.dogState} placeholder={'Please choose...'} handleChange={this.onInputChange} />
+
+          <Input type={'number'} title={"Dog's Zip:"} name={'dogZip'} value={this.state.personalInfo.dogZip} placeholder={'Please enter dogs zip:'} handleChange={this.onInputChange} />
+
+          <textarea value={this.state.personalInfo.dogReason} name={'dogReason'} onChange={this.onInputChange} cols='30' rows='10' placeholder='Please give a reason why the dog(s) do not live at the mailing address:'></textarea>
+        </Fragment>
+      );
+    }
     return(
       <form>
         <Input type={'text'} title={'First Name'} name={'fName'} value={this.state.personalInfo.fName} placeholder={"Enter first name:"} handleChange={this.onInputChange}/>
@@ -39,6 +54,8 @@ class PersonalInfo extends Component{
         <Select title={'State:'} name={'state'} options={this.state.stateOptions} value={this.state.personalInfo.state} placeholder={'Please choose...'} handleChange={this.onInputChange} />
 
         <Select title={'Do your dog(s) live at the mailing address:'} name={'dogMailingAddress'} value={this.state.personalInfo.dogMailingAddress} options={['Yes','No']} placeholder={'Please choose...'} handleChange={this.onInputChange} />
+
+        {message}
 
         <Input type={'number'} title={'Phone Number:'} value={this.state.personalInfo.phoneNumber} placeholder={'Enter phone number'} handleChange={this.onInputChange} />
 
