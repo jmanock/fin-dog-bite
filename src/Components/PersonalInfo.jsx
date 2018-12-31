@@ -11,6 +11,7 @@ class PersonalInfo extends Component{
     },
     stateOptions:States
   }
+
   onInputChange = (e) =>{
     const newPerson = this.state.personalInfo;
     newPerson[e.target.name]=e.target.value;
@@ -18,6 +19,7 @@ class PersonalInfo extends Component{
       personalInfo:newPerson
     })
   }
+
   render(){
     let message;
     if(this.state.personalInfo.dogMailingAddress === 'No'){

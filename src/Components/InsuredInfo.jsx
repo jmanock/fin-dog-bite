@@ -24,7 +24,7 @@ class InsuredInfo extends Component{
 
   render(){
     let form;
-    console.log(this.state);
+    //console.log(this.state);
     if(this.props.state.addIns === '0'){
       form = (
         <Button type={'btn btn-success'} action={this.something} title={'Add Ins'} className={'fa fa-paw'}></Button>
@@ -56,7 +56,9 @@ class InsuredInfo extends Component{
         </form>
       );
     }else{
-
+      for(let x = 0; x<this.props.state.addIns; x++){
+        
+      }
     }
     return(
       <div>
