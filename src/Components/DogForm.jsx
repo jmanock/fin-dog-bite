@@ -8,7 +8,7 @@ import Breeds from './OptionsComponents/Breeds';
 class DogForm extends Component{
   state = {
     dog:{
-      name:'',color:'',state:'',age:'',email:'',weight:'',bathroom:'',children:'',
+      name:'',color:'',state:'',age:'',email:'',weight:'',bathroom:'',children:'',abuse:'',doesBreed:'',sleep:'',area:'',dogsInHome:'',veterinarian:'',gender:'',reproductive:'',training:'',work:'',dogParks:'',integral:'',humanInjury:'',animalInjury:'',deployed:'',adopted:''
     },
     options:{
       state:States,
@@ -30,12 +30,7 @@ class DogForm extends Component{
     if(nextProps.selectedDog !== this.props.selectedDog){
       this.setState({
         dog:nextProps.selectedDog || {
-          name:'',
-          color:'',
-          state:'',
-          age:'',
-          email:'',
-          weight:''
+          name:'',color:'',state:'',age:'',email:'',weight:'',bathroom:'',children:'',abuse:'',doesBreed:'',sleep:'',area:'',dogsInHome:'',veterinarian:'',gender:'',reproductive:'',training:'',work:'',dogParks:'',integral:'',humanInjury:'',animalInjury:'',deployed:'',adopted:''
         }
       });
     }
@@ -78,9 +73,9 @@ class DogForm extends Component{
       <div className='container'>
         <form onSubmit={this.onFormSubmit}>
           <div className='row'>
-            <div className='col-sm-2'></div>
+            <div className='col-sm-1'></div>
 
-            <div className='col-sm-10'>
+            <div className='col-sm-11'>
 
               <Input type={'text'} title={'Your Email:'} name={'email'} value={this.state.dog.email} placeholder='Enter your email' handleChange={this.onInputChange} />
 
