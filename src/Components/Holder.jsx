@@ -92,11 +92,11 @@ class Holder extends Component{
       <div className='container'>
         <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
-
+        <InsuredInfo  state={this.state}/>
         <Rates state={this.state} addRates={this.addRates}/>
 
         <PersonalInfo personalInfo={this.personalInfo} state={this.state} />
-        <InsuredInfo  state={this.state}/>
+
       </div>
     );
   }
