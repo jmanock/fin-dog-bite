@@ -73,9 +73,13 @@ class Holder extends Component{
   }
 
   addIns = (addInsured) =>{
-    this.setState({
-      addIns:addInsured
-    });
+    var rows=[];
+    for(var i = 0; i<addInsured; i++){
+      rows.push({id:i,interestName:'',relationship:'',address:'',city:'',state:'',zip:'',contactName:'',contactPhone:'',contactEmail:''})
+      this.setState({
+        addIns:rows
+      })
+    }
   }
 
   addRates = (rates)=>{
