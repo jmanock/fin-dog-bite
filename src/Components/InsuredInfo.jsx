@@ -1,4 +1,4 @@
-import React,{Component,Fragment} from 'react';
+import React,{Component} from 'react';
 import Button from './FormComponents/Button';
 import Input from './FormComponents/Input';
 import Select from './FormComponents/Select';
@@ -28,9 +28,10 @@ class InsuredInfo extends Component{
     let rows = [];
     let text;
     for( let i = 0; i < this.props.state.addIns; i++){
-      rows.push(text = (
-        <div key={i}>{i + 1}
-          <Input type={'text'} title={'Interes Name:'} name={'interestName'} value={this.state.additionalIns.interestName} placeholder={'Enter interest name:'} handleChange={this.onInputChange} />
+      rows.push( text = (
+        <div key={i}>{i+1}
+
+          <Input type={'text'} title={'Interes Name:'} name={'interestName'} value={this.state.additionalIns.interestName+i} placeholder={'Enter interest name:'} handleChange={this.onInputChange} />
 
           <Select title={'Relationship:'} name={'relationship'} options={['Landlord','Employer','Governmental Entity', 'Other']} value={this.state.additionalIns.relationship} placeholder={'Please choose...'} handleChange={this.onInputChange} />
 
