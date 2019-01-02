@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import Button from './FormComponents/Button';
 import Input from './FormComponents/Input';
 import Select from './FormComponents/Select';
@@ -10,7 +10,8 @@ class InsuredInfo extends Component{
       id:'',interestName:'',relationship:'',address:'',city:'',state:'',zip:'',contactName:'',contactPhone:'',contactEmail:''
     },
     options:{
-      state:States
+      state:States,
+      num:8
     }
   }
 
@@ -23,18 +24,15 @@ class InsuredInfo extends Component{
   }
 
   render(){
-    let form;
-    //console.log(this.state);
-    if(this.props.state.addIns === '0'){
-      form = (
-        <Button type={'btn btn-success'} action={this.something} title={'Add Ins'} className={'fa fa-paw'}></Button>
-      );
-    }else if(this.props.state.addIns === '1'){
-      form = (
-        <form>
-          <Input type={'text'} title={'Interest Name:'} name={'interestName'} value={this.state.additionalIns.interestName} placeholder={'Enter interest name:'} handleChange={this.onInputChange} />
+    console.log(this.state);
+    let rows = [];
+    let text;
+    for( let i = 0; i < this.props.state.addIns; i++){
+      rows.push(text = (
+        <div key={i}>{i + 1}
+          <Input type={'text'} title={'Interes Name:'} name={'interestName'} value={this.state.additionalIns.interestName} placeholder={'Enter interest name:'} handleChange={this.onInputChange} />
 
-          <Select title={'Relationship:'} name={'relationship'} options={['Landlord','Employer','Governmental Entity','Other']} value={this.state.additionalIns.relationship} placeholder={'Please choose...'} handleChange={this.onInputChange} />
+          <Select title={'Relationship:'} name={'relationship'} options={['Landlord','Employer','Governmental Entity', 'Other']} value={this.state.additionalIns.relationship} placeholder={'Please choose...'} handleChange={this.onInputChange} />
 
           <Input type={'text'} title={'Address:'} name={'address'} value={this.state.additionalIns.address} placeholder={'Enter address:'} handleChange={this.onInputChange} />
 
@@ -42,28 +40,22 @@ class InsuredInfo extends Component{
 
           <Select title={'State:'} name={'state'} options={this.state.options.state} value={this.state.additionalIns.state} placeholder={'Please choose...'} handleChange={this.onInputChange} />
 
-          <Input type={'number'} title={'Zip:'} name={'zip'} value={this.state.additionalIns.zip} placeholder={'Enter zip code:'} handleChange={this.onInputChange} />
+          <Input type={'number'} title={'Zip:'} value={this.state.additionalIns.zip} placeholder={'Enter zip:'} handleChange={this.onInputChange} />
 
           <Input type={'text'} title={'Contact First Name:'} name={'fName'} value={this.state.additionalIns.fName} placeholder={'Enter contact first name:'} handleChange={this.onInputChange} />
 
-          <Input type={'text'} title={'Contact Last Name:'} name={'lName'} value={this.state.additionalIns.lName} placeholder={'Enter cotact last name:'} handleChange={this.onInputChange} />
+          <Input type={'text'} title={'Contact Last Name:'} name={'lName'} value={this.state.additionalIns.lName} placeholder={'Enter contact last name:'} handleChange={this.onInputChange} />
 
-          <Input type={'number'} title={'Contact Phone:'} name={'phone'} value={this.state.additionalIns.phone} placeholder={'Enter contact phone number:'} handleChange={this.onInputChange} />
+          <Input type={'number'} title={'Contact Phone Number:'} name={'phone'} value={this.state.additionalIns.phone} placeholder={'Enter contact phone number:'} handleChange={this.onInputChange} />
 
           <Input type={'email'} title={'Contact Email:'} name={'email'} value={this.state.additionalIns.email} placeholder={'Enter contact email:'} handleChange={this.onInputChange} />
-
-          <Button type={'btn btn-success'} action={this.something} title={'Add Ins'} className={'fa fa-paw'}></Button>
-        </form>
-      );
-    }else{
-      for(let x = 0; x<this.props.state.addIns; x++){
-        
-      }
+        </div>
+      ));
     }
     return(
       <div>
         <h1>Insured Info</h1>
-        {form}
+        {rows}
       </div>
     );
   }
