@@ -10,9 +10,12 @@ class InsuredInfo extends Component{
       id:'',interestName:'',relationship:'',address:'',city:'',state:'',zip:'',contactName:'',contactPhone:'',contactEmail:''
     },
     options:{
-      state:States,
-      num:8
+      state:States
     }
+  }
+
+  componentWillReceiveProps(nextProps){
+    console.log(nextProps.state.addIns);
   }
 
   onInputChange = (e) =>{
@@ -24,7 +27,6 @@ class InsuredInfo extends Component{
   }
 
   render(){
-    console.log(this.state);
     let rows = [];
     let text;
     for( let i = 0; i < this.props.state.addIns; i++){
