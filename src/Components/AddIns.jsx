@@ -4,7 +4,7 @@ import Button from './FormComponents/Button';
 
 class AddIns extends Component{
   state = {
-    addIns:'0'
+    addIns:''
   }
 
   onSelectChange = e =>{

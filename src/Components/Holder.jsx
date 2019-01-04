@@ -88,6 +88,18 @@ class Holder extends Component{
     })
   }
 
+  addInsuredInfo = (people) =>{
+    this.setState({
+      addIns:this.state.addIns.map((x) =>{
+        if(x.id === people.id){
+          return Object.addign({},people);
+        }else{
+          return x;
+        }
+      })
+    });
+  }
+
   personalInfo = (person) =>{
     console.log(person);
   }
@@ -96,7 +108,7 @@ class Holder extends Component{
       <div className='container'>
         <DogForm updateDog={this.handleEditOpenDog} openForm={this.openForm} selectedDog={this.state.selectedDog} createDog={this.handleCreateDog} />
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
-        <InsuredInfo  state={this.state}/>
+        <InsuredInfo  state={this.state} addIns={this.addInsuredInfo}/>
         <Rates state={this.state} addRates={this.addRates}/>
 
         <PersonalInfo personalInfo={this.personalInfo} state={this.state} />
