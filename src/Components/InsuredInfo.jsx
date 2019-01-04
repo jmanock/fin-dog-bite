@@ -15,23 +15,18 @@ class InsuredInfo extends Component{
   }
 
   componentWillReceiveProps(nextProps){
+    console.log(nextProps.state.addIns);
     this.setState({
       additionalIns:nextProps.state.addIns
     });
   }
 
   onInputChange = (e) =>{
-    console.log(this.state);
-    // const newInsured = this.state.additionalIns;
-    // newInsured[e.target.name]=e.target.value;
-    // this.setState({
-    //   additionalIns:newInsured
-    // });
-    // this.setState({
-    //   additionalIns:this.state.additionalIns.map((x) =>{
-    //     if(e.target.)
-    //   })
-    // })
+    const newPerson = this.state.additionalIns;
+    newPerson[e.target.name]=e.target.value;
+    this.setState({
+      additionalIns:newPerson
+    })
   }
 
   addInsuredForm = () =>{
@@ -39,14 +34,15 @@ class InsuredInfo extends Component{
   }
 
   render(){
+    console.log(this.state);
     let knew,num;
     if(this.state.additionalIns.length > 0){
       knew = this.state.additionalIns.map((x) =>{
         num = x.id;
         return(
-          <div key={x.id}>
+          <form key={x.id}>
             <span style={{color:'red'}}>{x.id+1}</span>
-            <Input type={'text'} title={'Interes Name:'} name={'interestName'} value={this.state.additionalIns.num} placeholder={'Enter interest name:'} handleChange={this.onInputChange} num={num}/>
+            <Input type={'text'} title={'Interes Name:'} name={'interestName'} value={this.state.additionalIns.interestName} placeholder={'Enter interest name:'} handleChange={this.onInputChange} num={num}/>
 
            <Select title={'Relationship:'} name={'relationship'} options={['Landlord', 'Employer','Governmental Entity','Other']} value={this.state.additionalIns.relationship} placeholder={'Please choose...'} handleChange={this.onInputChange} />
 
@@ -65,7 +61,9 @@ class InsuredInfo extends Component{
            <Input type={'number'} title={'Contact Phone Number:'} name={'phone'} value={this.state.additionalIns.phone} placeholder={'Enter contact phone number'} handleChange={this.onInputChange} />
 
            <Input type={'email'} title={'Contact Email:'} name={'email'} value={this.state.additionalIns.email} placeholder={'Enter contact email'} handleChange={this.onInputChange} />
-          </div>
+
+           <Button type={'btn btn-success'} action={this.addInsuredForm} title={'Next'} className={'fa fa-paw'} />
+          </form>
         )
       })
     }
@@ -73,7 +71,7 @@ class InsuredInfo extends Component{
       <div>
         <h1>Insured Info</h1>
         {knew}
-        <Button type={'btn btn-success'} action={this.addInsuredForm} title={'Next'} className={'fa fa-paw'} />
+
       </div>
     )
   }
