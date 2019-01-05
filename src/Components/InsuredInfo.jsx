@@ -1,59 +1,26 @@
 import React,{Component} from 'react';
 import Button from './FormComponents/Button';
-import Input from './FormComponents/Input';
-import Select from './FormComponents/Select';
-import States from './OptionsComponents/State';
 
 class InsuredInfo extends Component{
-  state = {
-    additionalIns:null,
-    options:{
-      state:States
-    }
+  edit(e){
+    console.log(e)
   }
-
-  componentDidMount(){
-    console.log('didMount:', this.props.state.addIns);
-    if(this.props.state.addIns !== null){
-      console.log('working')
-      this.setState({
-        additionalIns:this.props.state.addIns
-      })
-    }
-  }
-
-  componentWillReceiveProps(nextProps){
-    this.setState({
-      additionalIns:nextProps.state.addIns
-    });
-  }
-
-  onInputChange = (e) =>{
-    const newPerson = this.state.additionalIns;
-    newPerson[e.target.name]=e.target.value;
-    this.setState({
-      additionalIns:newPerson
-    })
-  }
-
-  addInsuredForm = () =>{
-    console.log(this.props.state);
-  }
-  edit = (x) =>{
-    console.log(x.id);
-  }
-
   render(){
-    let knew;
-    
+    const knew = this.props.state.addIns.map((x) =>{
+      let nums = x.id +1;
+      return <div key={x.id}>
+        <Button action={this.props.Edit(x)} type={'btn btn-success'} className={'fa fa-pencil'} title={nums+' Edit'} />
+      </div>
+    })
+
     return(
       <div>
-        <h1>Ins form</h1>
+        <h1>InsuredInfo</h1>
         {knew}
       </div>
+
     )
   }
-
-};
+}
 
 export default InsuredInfo;
