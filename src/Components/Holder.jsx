@@ -17,6 +17,7 @@ class Holder extends Component{
     isOpen:true,
     idCount:3,
     selectedDog:null,
+    selectedAddIns:null,
     addIns:addIns,
     rates:{
       id:'',total:'',coverage:'',insAmount:'',down:''
@@ -24,6 +25,7 @@ class Holder extends Component{
   };
 
   handleEditOpenDog = updatedDog =>{
+    console.log(updatedDog,'updateDog');
     this.setState({
       dogs:this.state.dogs.map(dog => {
         if(dog.id === updatedDog.id){
@@ -36,8 +38,12 @@ class Holder extends Component{
     });
   }
 
+  handleEditAddIns = updatedIns =>{
+    console.log(updatedIns);
+  }
+
   handleEditDog = dogToUpdate => () =>{
-    console.log(dogToUpdate);
+    console.log('This is the edit button');
     this.setState({
       selectedDog:dogToUpdate,
       isOpend:true
@@ -89,7 +95,9 @@ class Holder extends Component{
     })
   }
   handleEditIns = addIns => () =>{
-    console.log(addIns);
+    this.setState({
+      selectedAddIns:addIns
+    })
   }
 
   render(){
