@@ -20,7 +20,7 @@ class AddIns extends Component{
 
     return(
       <div>
-        <Select title={'AddIns'} name={'addIns'} options={[0,1,2,3,4,5]} handleChange={this.onSelectChange} placeholder={'Please choose...'} value={this.state.addIns} />
+        <Select title={'AddIns'} name={'addIns'} options={['0','1','2','3','4','5']} handleChange={this.onSelectChange} placeholder={'Please choose...'} value={this.state.addIns} />
         <Button type={'btn btn-success'} action={this.addInsured} title={'Next'} className={'fa fa-paw'} />
       </div>
 

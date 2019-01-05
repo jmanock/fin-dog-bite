@@ -17,7 +17,7 @@ class Holder extends Component{
     isOpen:true,
     idCount:3,
     selectedDog:null,
-    addIns:0,
+    addIns:null,
     rates:{
       id:'',total:'',coverage:'',insAmount:'',down:''
     }

@@ -6,11 +6,19 @@ import States from './OptionsComponents/State';
 
 class InsuredInfo extends Component{
   state = {
-    additionalIns:{
-      id:'',interestName:'',relationship:'',address:'',city:'',state:'',zip:'',contactName:'',contactPhone:'',contactEmail:''
-    },
+    additionalIns:null,
     options:{
       state:States
+    }
+  }
+
+  componentDidMount(){
+    console.log('didMount:', this.props.state.addIns);
+    if(this.props.state.addIns !== null){
+      console.log('working')
+      this.setState({
+        additionalIns:this.props.state.addIns
+      })
     }
   }
 
@@ -29,33 +37,23 @@ class InsuredInfo extends Component{
   }
 
   addInsuredForm = () =>{
-    console.log(this.state);
+    console.log(this.props.state);
   }
   edit = (x) =>{
-    console.log(x);
-    this.props.handleEdit(x.id)
+    console.log(x.id);
   }
+
   render(){
     let knew;
-    if(this.state.additionalIns.length > 0){
-      knew = this.state.additionalIns.map((x) => {
-        return(
-          <div key={x.id}>
-            <Button action={this.edit(x.id)} type={'btn btn-success'} title={'Edit'}></Button>
-          </div>
-
-        )
-      })
-    }
-
+    
     return(
       <div>
-        <h1>Insured Info</h1>
+        <h1>Ins form</h1>
         {knew}
-
       </div>
     )
   }
+
 };
 
 export default InsuredInfo;
