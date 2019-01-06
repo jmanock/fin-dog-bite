@@ -97,9 +97,17 @@ class Holder extends Component{
   }
   handleEditIns = addIns => () =>{
     this.setState({
-      selectedAddIns:addIns
-    })
+      addIns:this.state.addIns.map(x =>{
+        if(x.id === addIns.id){
+          return Object.assign({},addIns);
+        }else{
+          return x;
+        }
+      }),
+      selectedAddIns:null
+    });
   }
+
 
   render(){
     return(
