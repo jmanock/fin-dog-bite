@@ -1,7 +1,6 @@
 import React,{Component} from 'react';
 import Button from './FormComponents/Button';
 import Input from './FormComponents/Input';
-import AddInsForm from './AddInsForm';
 
 class InsuredInfo extends Component{
 
@@ -30,7 +29,6 @@ class InsuredInfo extends Component{
             {knew}
           </tbody>
         </table>
-        <AddInsForm />
       </div>
 
     )

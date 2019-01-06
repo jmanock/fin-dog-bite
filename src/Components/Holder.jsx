@@ -4,6 +4,7 @@ import DogList from './DogList';
 import Rates from './Rates';
 import PersonalInfo from './PersonalInfo';
 import InsuredInfo from './InsuredInfo';
+import AddInsForm from './AddInsForm';
 
 const dogs = [
   // {id:'1',name:'Brian',color:'Orange',state:'West Virginia',age:'10',email:'brian@test.com',weight:'2'},
@@ -107,7 +108,7 @@ class Holder extends Component{
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dogs={this.state.dogs} state={this.state} addIns={this.addIns}/>
 
         <InsuredInfo  state={this.state} Edit={this.handleEditIns} />
-
+        <AddInsForm  state={this.state}/>
         <Rates state={this.state} addRates={this.addRates}/>
 
         <PersonalInfo personalInfo={this.personalInfo} state={this.state} />
