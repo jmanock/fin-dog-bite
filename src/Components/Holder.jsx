@@ -17,6 +17,7 @@ class Holder extends Component{
     dogs:dogs,
     isOpen:true,
     idCount:3,
+    idInsCount:0,
     selectedDog:null,
     selectedAddIns:null,
     addIns:addIns,
@@ -95,7 +96,22 @@ class Holder extends Component{
       rates:{id:rates.id,total:rates.total,coverage:rates.coverage, insAmount:rates.insAmount,down:rates.down}
     })
   }
+
+  handleCreateIns = (newIns) =>{
+      let curId = this.state.idInsCount;
+      newIns.id = curId + 1;
+
+      let updateIns = [...this.state.addIns];
+      updateIns.push(newIns);
+
+      this.setState({
+        addIns:updateIns,
+        idInsCount:curId + 1
+      });
+  }
+
   handleEditIns = addIns => () =>{
+    console.log(addIns,'AddIns:');
     this.setState({
       addIns:this.state.addIns.map(x =>{
         if(x.id === addIns.id){

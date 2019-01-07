@@ -55,7 +55,7 @@ class AddInsForm extends Component{
   }
 
   render(){
-    console.log('state::',this.state);
+    console.log(this.props.state);
     return(
       <div className='container'>
         <h1>Add Ins Form</h1>
