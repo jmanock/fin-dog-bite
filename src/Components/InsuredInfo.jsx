@@ -8,7 +8,7 @@ class InsuredInfo extends Component{
     const knew = this.props.state.addIns.map((x) =>{
       let nums = x.id +1;
       return <tr key={x.id}>
-        <td>{nums} <Button action={this.props.Edit(x)} type={'btn btn-success'} className={'fa fa-pencil'} title={'Edit'}></Button></td>
+        <td>{nums} <Button action={this.props.edit(x)} type={'btn btn-success'} className={'fa fa-pencil'} title={'Edit'}></Button></td>
       </tr>
     })
 

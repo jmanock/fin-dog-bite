@@ -13,6 +13,7 @@ class AddIns extends Component{
   addInsured = () =>{
     this.props.addIns(this.state.addIns);
   }
+  
   render(){
     return(
       <div>

@@ -3,8 +3,7 @@ import Button from './FormComponents/Button';
 
 class AddInsList extends Component{
   render(){
-    console.log(this.props);
-    const addItem = this.props.addIns.map((ins) =>{
+    const addItem = this.props.ins.map((ins) =>{
       return <tr key={ins.id}>
         <td><Button action={this.props.handleEditIns(ins)} type={'btn btn-success'} className={'fa fa-pencil'} title={'Edit'}></Button></td>
         <td>{ins.interestName}</td>
