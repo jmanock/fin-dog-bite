@@ -3,13 +3,13 @@ import Button from './FormComponents/Button';
 
 class AddInsList extends Component{
   render(){
-    const addItem = this.props.ins.map((ins) =>{
-      return <tr key={ins.id}>
-        <td><Button action={this.props.handleEditIns(ins)} type={'btn btn-success'} className={'fa fa-pencil'} title={'Edit'}></Button></td>
-        <td>{ins.interestName}</td>
-        <td>{ins.relationship}</td>
-        <td>{ins.state}</td>
-        <td>{ins.contactName}</td>
+    const InsItem = this.props.ins.map((addIns) => {
+      return <tr key={addIns.id}>
+        <td><Button action={this.props.handleEditIns(addIns)} type={'btn btn-success'} className={'fa fa-pencil'} title={'Edit'}></Button></td>
+        <td>{addIns.interestName}</td>
+        <td>{addIns.relationship}</td>
+        <td>{addIns.state}</td>
+        <td>{addIns.address}</td>
       </tr>
     })
     return(
@@ -20,16 +20,17 @@ class AddInsList extends Component{
               <th scope='col'>Edit</th>
               <th scope='col'>Name</th>
               <th scope='col'>Relationship</th>
-              <th scope='col'>ContactName</th>
+              <th scope='col'>State</th>
+              <th scope='col'>Address</th>
             </tr>
           </thead>
           <tbody>
-            {addItem}
+            {InsItem}
           </tbody>
         </table>
       </div>
-    );
+    )
   }
-};
+}
 
 export default AddInsList;
