@@ -4,14 +4,13 @@ import Button from './FormComponents/Button';
 
 class DogList extends Component{
   render(){
-    const dogItem = this.props.dogs.map((dog) =>{
+    const dogItem = this.props.dog.map((dog) =>{
       return <tr key={dog.id}>
         <td><Button action={this.props.handleEditDog(dog)} type={'btn btn-success'} className={'fa fa-pencil'} title={'Edit'}/></td>
         <td>{dog.name}</td>
         <td>{dog.age}</td>
         <td>{dog.state}</td>
         <td>{dog.color}</td>
-        <td><Button action={this.props.deleteDog(dog.id)} type={'btn btn-danger'} className={'fa fa-trash'} title={'Delete'} /></td>
       </tr>
     })
     return(

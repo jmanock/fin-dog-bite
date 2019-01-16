@@ -15,19 +15,30 @@ class AddInsForm extends Component{
   };
 
   componentDidMount(){
-    console.log('I done mounted');
+    if(this.props.selectedIns !== null){
+      this.setState({
+        Ins:this.props.selectedIns
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps){
-    console.log(nextProps);
+    if(nextProps.selectedIns !== this.props.selectedIns){
+      this.setState({
+        Ins:nextProps.selectedIns || {
+          interestName:'', relationship:'', address:'', city:'', state:'', zip:'', contactName:'', contactPhone:'', contactEmail:''
+        }
+      });
+    }
   }
 
   onFormSubmit = e =>{
+    console.log(this.state.Ins);
     e.preventDefault();
     const clone = this.state.Ins;
 
     if(this.state.Ins.id){
-      console.log('has id');
+      this.props.updateIns(this.state.Ins);
     }else{
       console.log('no id');
     }
@@ -44,7 +55,12 @@ class AddInsForm extends Component{
 
   render(){
     return(
-      <h1>Ins Form</h1>
+      <div className='container'>
+        <form onSubmit={this.onFormSubmit}>
+          <Input type={'text'} title={'Interest name:'} name={'interestName'} value={this.state.Ins.interestName} placeholder={'Enter interest name'} handleChange={this.onInputChange} />
+          <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
+        </form>
+      </div>
     )
   }
 }
