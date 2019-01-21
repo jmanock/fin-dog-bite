@@ -35,7 +35,6 @@ class AddInsForm extends Component{
   onFormSubmit = e =>{
     console.log(this.state.Ins);
     e.preventDefault();
-    const clone = this.state.Ins;
 
     if(this.state.Ins.id){
       this.props.updateIns(this.state.Ins);
@@ -73,7 +72,7 @@ class AddInsForm extends Component{
           <Input type={'number'} title={'Contact phone:'} name={'contactPhone'} value={this.state.Ins.contactPhone} handleChange={this.onInputChange} placeholder={'Enter contact phone'} />
 
           <Input type={'email'} title={'Contact email:'} name={'contactEmail'} value={this.state.Ins.contactEmail} handleChange={this.onInputChange} placeholder={'Enter contact email'} />
-          
+
           <Button type={'btn btn-success'} action={this.onFormSubmit} title={'Next'} className={'fa fa-paw'} />
         </form>
       </div>

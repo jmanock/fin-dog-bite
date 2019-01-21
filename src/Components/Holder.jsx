@@ -131,9 +131,10 @@ class Holder extends Component{
 
         <DogList deleteDog={this.handleDeleteDog} handleEditDog={this.handleEditDog} dog={this.state.dogs} addIns={this.addIns}/>
 
+        <AddInsList deleteIns={this.handleDeleteIns} handleEditIns={this.handleEditIns} ins={this.state.ins} />
+
         <AddInsForm updateIns={this.handleEditOpenIns} selectedIns={this.state.selectedIns} createIns={this.handleCreateIns}/>
 
-        <AddInsList deleteIns={this.handleDeleteIns} handleEditIns={this.handleEditIns} ins={this.state.ins} />
       </div>
     )
   }
