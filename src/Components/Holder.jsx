@@ -3,6 +3,7 @@ import DogForm from './DogForm';
 import DogList from './DogList';
 import AddInsForm from './AddInsForm';
 import AddInsList from './AddInsList';
+import Rates from './Rates';
 
 const dogs = [
 
@@ -24,7 +25,10 @@ class Holder extends Component{
     idCount:3,
     idInsCount:0,
     selectedDog:null,
-    selectedIns:null
+    selectedIns:null,
+    rates:{
+      id:'', total:'', coverage:'', insAmount:'', down:''
+    }
   };
 
   handleEditOpenDog = updatedDog =>{
@@ -124,6 +128,20 @@ class Holder extends Component{
       })
     }
   }
+
+  addRates = rates =>{
+    console.log(rates,'rates');
+    this.setState({
+      rates:{
+        id:rates.id,
+        total:rates.total,
+        coverage:rates.coverage,
+        insAmount:rates.insAmout,
+        down:rates.down
+      }
+    })
+  }
+
   render(){
     return(
       <div className='container'>
@@ -135,6 +153,7 @@ class Holder extends Component{
 
         <AddInsForm updateIns={this.handleEditOpenIns} selectedIns={this.state.selectedIns} createIns={this.handleCreateIns}/>
 
+        <Rates state={this.state} addRates={this.addRates}/>
       </div>
     )
   }
